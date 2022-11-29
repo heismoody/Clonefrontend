@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .list {
+      @apply font-bold px-2 text-slate-100/50 text-sm hover:text-slate-100;
+    }
+    .heading1{
+        @apply font-bold text-[42px] text-slate-100 text-center pt-8;
+    }
+    .paragraph{
+      @apply text-slate-50/50 text-center max-w-2xl text-sm py-4;
+    }
+    .thumbcontainer{
+      @apply w-[210px]
+    }
+    .thumbcontainermobile{
+      @apply w-[150px]
+    }
+    .thumbcontainertab {
+      @apply w-[100px]
+    }
+    .thumbcont{
+      @apply h-[315px] w-[210px] border-[5px] rounded hover:border-our-green ;
+    }
+    .thumbcontmobile{
+      @apply h-[250px] w-[150px] border-[4px] rounded hover:border-our-green;
+    }
+    .thumbimg{
+      @apply h-full w-full object-cover;
+    }
+    .thumbbtn{
+      @apply text-base text-slate-200 font-bold bg-our-green rounded py-1 px-2;
+    }
+    .thumbtxt{
+      @apply text-2xl text-slate-300 font-bold
+    }
+    .detailhead{
+      @apply text-slate-100 font-bold text-lg
+    }
+    .heading2{
+      @apply font-bold text-slate-50 text-lg
+    }
+    .lables{
+      @apply block pb-1 text-sm font-bold
+    }
+    .inputfield{
+      @apply p-1 mb-5 rounded outline-none
+    }
+    .requesttitle{
+      @apply text-xl font-bold text-our-green px-3 py-2
+    }
+    .reqdetail{
+      @apply text-slate-600 text-sm font-semibold px-3
+    }
+    .reqdetailstrong{
+      @apply text-slate-600 pl-3
+    }
+    .signupfield{
+      @apply rounded outline-none w-full placeholder:text-sm
+    }
+    .signupdiv{
+      @apply flex items-center mb-7 py-3 rounded border border-black/30 w-full
+    }
+    .searchcont{
+      @apply h-[60px] w-[50px]
+    }
+    .dashboardnag{
+      @apply py-3 px-3 hover:bg-slate-600
+    }
+    .thumbmob{
+      @apply grid grid-cols-2 gap-y-6 place-items-center
+    }
+    .youtube{
+      @apply px-2 w-11/12 h-[210px]
+    }
+    .fitting{
+      @apply w-full h-[100vh]
+    }
+    .movielist{
+      @apply grid-cols-2 gap-1 gap-y-5 overflow-auto
+    }
+    .navigationresp{
+      @apply flex flex-col text-center
+    }
+    .resnav{
+      @apply w-full h-[7vh]
+    }
+    .tempres{
+      @apply grid-cols-2 gap-x-1 place-items-center
+    }
+  }
+
+@layer utilities{
+  .scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+}
