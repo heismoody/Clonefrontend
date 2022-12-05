@@ -53,32 +53,32 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
 
     const key = gettrailer()
     
-    const sendtolist = async () => {
+    // const sendtolist = async () => {
 
-        const tolist = {title,year,movieid,posterurl}
-        const res = await fetch('http://192.168.128.166:4000/api/downloadlist/entertolist', {
-            method: 'POST',
-            body: JSON.stringify(tolist),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-        const data = await res.json()
-        seterror(data.error)
-        setTimeout(function() {
-            seterror('')
-        }, 3000)
+    //     const tolist = {title,year,movieid,posterurl}
+    //     const res = await fetch('http://192.168.128.166:4000/api/downloadlist/entertolist', {
+    //         method: 'POST',
+    //         body: JSON.stringify(tolist),
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${user.token}`
+    //         }
+    //     })
+    //     const data = await res.json()
+    //     seterror(data.error)
+    //     setTimeout(function() {
+    //         seterror('')
+    //     }, 3000)
 
-        if (res.ok) {
-            setadded(true)
-            setTimeout(function() {
-                setadded(false)
-            }, 3000)
-            dispatch({type:'addtolist', payload: data})
-        }
+    //     if (res.ok) {
+    //         setadded(true)
+    //         setTimeout(function() {
+    //             setadded(false)
+    //         }, 3000)
+    //         dispatch({type:'addtolist', payload: data})
+    //     }
 
-    }
+    // }
 
     useEffect(() => {
         const showwidth = () => {
