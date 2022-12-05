@@ -4,7 +4,7 @@ import MovieThumb from "../components/Moviethumb"
 
 export const Movielistendpoint = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(Movielistendpoint);
   const resgenre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}`)
   const resupcoming = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`)
