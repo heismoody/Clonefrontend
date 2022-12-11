@@ -118,7 +118,7 @@ const Userpage = () => {
                     </ul>
                 </div>
                 <div className="w-[80%] md:fitting">
-                    <div className="flex justify-around md:fitting block">
+                    <div className="flex justify-around md:fitting md:block">
                         {
                             tabtwo && (
                                 <div className="w-[60%] overflow-auto overflow-x-hidden h-[90vh] scrollbar md:fitting px-2">
