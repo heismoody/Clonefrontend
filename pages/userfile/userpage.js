@@ -29,7 +29,7 @@ const Userpage = () => {
         window.addEventListener("resize", handleResize);
         
         const fetchrequestedmovies = async () => {
-            const res = await fetch('http://192.168.128.166:4000/api/requestmovie/allmovies', {
+            const res = await fetch('https://clonebackend.vercel.app/api/requestmovie/allmovies', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
@@ -42,7 +42,7 @@ const Userpage = () => {
         }
 
         const GetList = async () => {
-            const res = await fetch('http://192.168.128.166:4000/api/downloadlist/wholelist', {
+            const res = await fetch('https://clonebackend.vercel.app/api/downloadlist/wholelist', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
@@ -118,7 +118,7 @@ const Userpage = () => {
                     </ul>
                 </div>
                 <div className="w-[80%] md:fitting">
-                    <div className="flex justify-around md:fitting block ">
+                    <div className="flex justify-around md:fitting block">
                         {
                             tabtwo && (
                                 <div className="w-[60%] overflow-auto overflow-x-hidden h-[90vh] scrollbar md:fitting px-2">
