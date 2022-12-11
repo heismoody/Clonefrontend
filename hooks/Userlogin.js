@@ -12,7 +12,7 @@ export const uselogin = () => {
         seterror(null)
         setloading(true)
 
-        const res = await fetch('http://192.168.128.166:4000/api/user/login', {
+        const res = await fetch('https://clonebackend.vercel.app/api/user/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
