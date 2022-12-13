@@ -34,7 +34,6 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
     const [error, seterror] = useState('')
     const [size, setsize] = useState('')
     const [added, setadded] = useState(false)
-    const [loading, setloading] = useState(false)
     const {dispatch} = listcontexthook()
 
     const title = thumb.title;
@@ -123,15 +122,12 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                             </div>
                             <div className="my-2 thumbcontainer ">
                                 <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}>
-                                        <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onLoad={setloading(true)}>
+                                        <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
                                         <span>Download</span> 
-                                        {
-                                            loading &&
-                                           <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>     
-                                        }  
+                                        <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"></svg>  
                                     </button>
                                 </Link>    
                                 <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
