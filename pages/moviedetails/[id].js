@@ -34,7 +34,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
     const [error, seterror] = useState('')
     const [size, setsize] = useState('')
     const [added, setadded] = useState(false)
-    const [loading, setloading] = useState(false);
+    const [loading, setloading] = useState(false)
     const {dispatch} = listcontexthook()
 
     const title = thumb.title;
