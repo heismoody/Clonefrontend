@@ -129,7 +129,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                             </div>
                             <div className="my-2 thumbcontainer ">
                                 <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}>
-                                    <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onclick={runloading}>
+                                    <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={runloading}>
                                         {
                                             download &&
                                             <span>Download</span>
