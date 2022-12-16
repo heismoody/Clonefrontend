@@ -49,8 +49,7 @@ export default function Home({ data, genre, upcoming, nowplaying }) {
         <h1 className="heading1 sm:text-xl">Download YTS YIFY movies: HD smallest size</h1>
         <div className="flex justify-center">
           <p className="paragraph">
-            Welcome to the inspired site <b>YTS.MX</b>(.LT) website. Here you can browse and download YIFY movies in excellent 720p, 1080p, 2160p 4K and 3D quality, all at the smallest file size. YTS Movies Torrents.
-            <span className="font-bold py-6 block">IMPORTANT - I cloned this for educational purpose only contribute by a clicking</span>
+            Welcome to the inspired site <b>popcorn movies</b>(.LT) website. Here you can browse and download movies in excellent quality, all at the smallest file size. YTS Movies Torrents.
           </p>
         </div>
         <div className="flex justify-center mt-0 pt-0">
