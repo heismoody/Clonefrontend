@@ -132,8 +132,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                                     <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onclick={runloading}>
                                         {
                                             download &&
-                                               
-                                                <span>Download</span>
+                                            <span>Download</span>
                                         }
                                         {
                                             load && 
