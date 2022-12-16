@@ -127,8 +127,9 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                             <div className="thumbcont hover:border-inherit ">
                                 <img src={`${base_url}${thumb.thumb}`} className="thumbimg"/>
                             </div>
-                            <div className="my-2 thumbcontainer ">
-                                    <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={() => { <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}></Link>; runloading }} onLoad={() => { setload(false); setdownload(true) }}>
+                                <div className="my-2 thumbcontainer ">
+                                    <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}>
+                                    <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={runloading} onLoad={() => { setload(false); setdownload(true) }}>
                                         {
                                             download &&
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -142,6 +143,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                                             </svg>
                                         }
                                     </button>
+                                    </Link>
                                 <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
                                         <span>Watch Now</span> 
                                 </button>
