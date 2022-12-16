@@ -128,7 +128,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                                 <img src={`${base_url}${thumb.thumb}`} className="thumbimg"/>
                             </div>
                             <div className="my-2 thumbcontainer ">
-                                    <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={()=>{ <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}></Link>} } onLoad={runloading}>
+                                    <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={() => { <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}></Link>; runloading }} onLoad={() => { setload(false); setdownload(true) }}>
                                         {
                                             download &&
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
