@@ -133,7 +133,7 @@ const Navigation = () => {
             <div className="cursor-default sm:hidden">
                 <Link href={"/"}><a className="list sm:py-2">Home</a></Link>
                 <a className="list text-our-green hover:text-our-green sm:py-2">4K</a>
-                <a className="list sm:py-2">Trending</a>
+                <a className="list sm:py-2">Tv Shows</a>
                 {user && (
                     <Link href={"/userfile/userpage"}>
                         <a className="list sm:py-2">Dashboard</a>
