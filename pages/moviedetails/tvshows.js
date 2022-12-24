@@ -34,10 +34,10 @@ const tvshows = ({ data }) => {
             {
               results.map((result, index) => {
                 if (index <= 3) {
-                  const moviedate = result.release_date;
+                  const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
                 }
               })
             }
