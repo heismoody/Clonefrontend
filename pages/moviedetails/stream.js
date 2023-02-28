@@ -13,5 +13,3 @@ const Stream = () => {
 }
 
 export default Stream
-
-import React from 'react'
