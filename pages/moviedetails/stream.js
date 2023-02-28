@@ -1,13 +1,15 @@
 import React from 'react'
 import { useRouter } from "next/router";
 
-
-function stream() {
+const Stream = () => {
     const router = useRouter();
     const query = router.query;
+    const movieid = query.id;
   return (
-    <div>Tsupp man this is your movie id {query.id} </div>
+      <>
+          <div>Tsupp man this is your movie id {movieid}</div>
+      </>
   )
 }
 
-export default stream
+export default Stream
