@@ -1,5 +1,5 @@
-import React from 'react'
 import { useRouter } from "next/router";
+import React from 'react'
 
 const Stream = () => {
     const router = useRouter();
@@ -13,3 +13,5 @@ const Stream = () => {
 }
 
 export default Stream
+
+import React from 'react'
