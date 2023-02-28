@@ -10,16 +10,13 @@ export async function getServerSideProps(context) {
     const id = context.query.id;
     const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
     const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
-    const restrailer = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.API_KEY}`);
     const data = await res.json();
     const image = await resimg.json();
-    const movtrailer = await restrailer.json();
 
     return {
         props: {
             data,
             image,
-            movtrailer,
             id
         }
     }
@@ -43,22 +40,10 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
     const movieid = id;
     const posterurl = thumb.thumb;
 
-    function gettrailer() {
-        for (let i = 0; i < movtrailer.results.length; i++) {
-            if (movtrailer.results[i].name == "Official Trailer" || movtrailer.results[i].site == "YouTube") {
-                return [
-                    movtrailer.results[i].key
-                ]
-            }                           
-        }
-    }
-
     function runloading() {
         setload(true);
         setdownload(false);
     }
-
-    const key = gettrailer()
     
     const sendtolist = async () => {
 
@@ -103,7 +88,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
 
     
     const base_url = 'https://image.tmdb.org/t/p/original'
-    const trailer = `https://www.youtube.com/embed/`
+    const trailer = `https://autoembed.to/trailer/movie/`
     
     return ( 
         <>
@@ -237,7 +222,7 @@ const MovieDetails = ({ data, image, movtrailer, id }) => {
                     </div>
                     <div className="flex justify-between mt-5 md:justify-center">
                         <div className="w-[600px] h-[416px] bg-black sm:youtube">
-                            <iframe className="thumbimg hover:opacity-70" src={`${trailer}${key}`}></iframe>
+                            <iframe className="thumbimg hover:opacity-70" src={`${trailer}${id}`}></iframe>
                         </div>
                         <div className="grid grid-rows-2 gap-y-2 pl-4 md:hidden">
                             {backdrops.map((backdrop, index) => {
