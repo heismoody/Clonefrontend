@@ -7,7 +7,7 @@ const Stream = () => {
     console.log(query);
   return (
       <>
-          <div>Tsupp man this is your movie id {movieid}</div>
+          <div>Tsupp man this is your movie id</div>
       </>
   )
 }
