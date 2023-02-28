@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
     }
 }
 
-const MovieDetails = ({ data, image, movtrailer, id }) => {
+const MovieDetails = ({ data, image, id }) => {
     const router = useRouter();
     const thumb = router.query;
     const { page, results } = data;
