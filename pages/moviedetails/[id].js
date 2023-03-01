@@ -136,7 +136,7 @@ const MovieDetails = ({ data, image, id }) => {
                                     </Link>
                                 <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
                                         <Link href={{
-                                            pathname: './stream.js',
+                                            pathname: './stream',
                                             query: {id: movieid},
                                             }}>
                                             <span>Watch Now</span>
