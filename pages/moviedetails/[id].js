@@ -112,7 +112,7 @@ const MovieDetails = ({ data, image, id }) => {
                             <div className="thumbcont hover:border-inherit ">
                                 <img src={`${base_url}${thumb.thumb}`} className="thumbimg"/>
                             </div>
-                                <div className="my-2 thumbcontainer ">
+                                <div className="my-2 thumbcontainer">
                                     <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`}>
                                         <a onLoad={() => { setload(false); setdownload(true) }}>
                                             <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={runloading}>
