@@ -7,7 +7,7 @@ const Stream = () => {
     const streamlink = `https://www.2embed.to/embed/tmdb/movie?id=`
   return (
     <>
-        <div className='bg-slate-900 h-fit pb-4'>
+        <div className='bg-slate-900 h-fit py-4'>
             <div className='flex justify-center'>
                 <div className="w-[800px] h-[600px] bg-black sm:youtube">
                     <iframe className="thumbimg hover:opacity-70" src={`${streamlink}${query.id}`} width="100%" height="100%" frameBorder="0" allowFullScreen></iframe>
