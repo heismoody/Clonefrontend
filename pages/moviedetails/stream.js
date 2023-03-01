@@ -8,7 +8,7 @@ const Stream = () => {
   return (
     <>
         <div className='bg-slate-900 h-screen py-4'>
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center'>
                 <div className="w-10/12 h-[80vh] bg-black sm:youtube">
                     <iframe className="thumbimg hover:opacity-70" src={`${streamlink}${query.id}`} width="100%" height="100%" frameBorder="0" allowFullScreen></iframe>
                 </div>
