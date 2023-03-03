@@ -19,7 +19,7 @@ const Navigation = () => {
             if (searchvalue == '') {
                 setresultquery(null)
             } else {
-                const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=7610542e1e569e1bb328e4210a54a049&language=en-US&query=${searchvalue}&page=1`)
+                const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=7610542e1e569e1bb328e4210a54a049&query=${searchvalue}`)
                 const data = await res.json()
 
                 if (res.ok) {
@@ -83,7 +83,7 @@ const Navigation = () => {
                 </div>
                 
                 {results && <div className="absolute my-3 bg-black rounded-b-lg w-full sm:my-0">{results.map((result, index) => {
-                    if (index <= 3) {
+                    if (index <= 7) {
                             const thumb = result.poster_path
                             const title = result.title
                             const year = String(result.release_date).substring(0,4)

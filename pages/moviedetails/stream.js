@@ -9,8 +9,8 @@ const Stream = () => {
     <>
           <div className='bg-slate-900 h-screen py-4'>
               <div>
-                  <p className="paragraph">We hate ads as you do. For this might take a while for we to fix.<br></br>
-                      At the moment you can use the back key to navigate back the site and continue streaming.<br></br>
+                  <p className="paragraph">We hate ads as you do. For this might take a while for we to fix.
+                      At the moment you can use the back key to navigate back the site and continue streaming.
                       While on computer you can close the redirecting tab</p>
               </div>
               <div className='flex justify-center'>
