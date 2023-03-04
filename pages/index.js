@@ -13,18 +13,20 @@ export async function getServerSideProps() {
   const genre = await resgenre.json();
   const upcoming = await resupcoming.json();
   const nowplaying = await resnow.json();
+  const mediatype = "movie";
 
   return {
     props: {
       data,
       genre,
       upcoming,
-      nowplaying
+      nowplaying,
+      mediatype
     }
   }
 }
 
-export default function Home({ data, genre, upcoming, nowplaying }) {
+export default function Home({ data, genre, upcoming, nowplaying, mediatype }) {
   const { page, results } = data;
   const { genres } = genre;
 
@@ -81,7 +83,7 @@ export default function Home({ data, genre, upcoming, nowplaying }) {
               const moviedate = result.release_date;
               const releasedate = moviedate.substring(0, 4);
 
-              return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} type={mediatype} />
             }
           })}
           </div>
@@ -98,7 +100,7 @@ export default function Home({ data, genre, upcoming, nowplaying }) {
                 const moviedate = result.release_date;
                 const releasedate = moviedate.substring(0, 4);
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} type={mediatype}/>
             }
           })}
           </div>
@@ -113,7 +115,7 @@ export default function Home({ data, genre, upcoming, nowplaying }) {
             {upcoming.results.map((result, index) => {
               if (index <= 3) {
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count}/>
+                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} type={mediatype}/>
             }
           })}
           </div>
