@@ -13,7 +13,7 @@ export async function getServerSideProps() {
   const genre = await resgenre.json();
   const upcoming = await resupcoming.json();
   const nowplaying = await resnow.json();
-  const mediatype = "movie";
+  const media_type = "movie";
 
   return {
     props: {
@@ -21,12 +21,12 @@ export async function getServerSideProps() {
       genre,
       upcoming,
       nowplaying,
-      mediatype
+      media_type
     }
   }
 }
 
-export default function Home({ data, genre, upcoming, nowplaying, mediatype }) {
+export default function Home({ data, genre, upcoming, nowplaying, media_type }) {
   const { page, results } = data;
   const { genres } = genre;
 
@@ -83,7 +83,7 @@ export default function Home({ data, genre, upcoming, nowplaying, mediatype }) {
               const moviedate = result.release_date;
               const releasedate = moviedate.substring(0, 4);
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} type={mediatype} />
+                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type} />
             }
           })}
           </div>
@@ -100,7 +100,7 @@ export default function Home({ data, genre, upcoming, nowplaying, mediatype }) {
                 const moviedate = result.release_date;
                 const releasedate = moviedate.substring(0, 4);
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} type={mediatype}/>
+                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
             }
           })}
           </div>
@@ -115,7 +115,7 @@ export default function Home({ data, genre, upcoming, nowplaying, mediatype }) {
             {upcoming.results.map((result, index) => {
               if (index <= 3) {
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} type={mediatype}/>
+                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
             }
           })}
           </div>
