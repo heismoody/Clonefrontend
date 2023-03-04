@@ -23,7 +23,7 @@ const Navigation = () => {
                 const data = await res.json()
 
                 if (res.ok) {
-                    const { page, results } = data
+                    const { results } = data
                     setresultquery(results)
                 }
             }     
@@ -85,7 +85,7 @@ const Navigation = () => {
                 {results && <div className="absolute my-3 bg-black rounded-b-lg w-full sm:my-0">{results.map((result, index) => {
                     if (index <= 7) {
                             const thumb = result.poster_path
-                            const title = result.title
+                            const title = result.title || result.name
                             const year = String(result.release_date).substring(0,4)
                             const rate = result.vote_average
                             const vote = result.vote_count
