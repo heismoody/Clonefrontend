@@ -8,10 +8,19 @@ import Link from "next/link";
 
 export async function getServerSideProps(context) {
     const id = context.query.id;
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
-    const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
-    const data = await res.json();
-    const image = await resimg.json();
+    const mediatype = query.mediatype;
+
+    if (mediatype == "tv") {
+        const res = await fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.API_KEY}&page=1`);
+        const resimg = await fetch(`https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.API_KEY}`);
+        const data = await res.json();
+        const image = await resimg.json();
+    } else {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
+        const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
+        const data = await res.json();
+        const image = await resimg.json();
+    }
 
     return {
         props: {
