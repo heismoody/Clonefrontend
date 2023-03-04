@@ -8,8 +8,7 @@ import Link from "next/link";
 
 export async function getServerSideProps(context) {
     const id = context.query.id;
-    const mediatype = query.mediatype;
-    console.log({mediatype})
+    const mediatype = context.query.mediatype;
     const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
     const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
     const data = await res.json();
