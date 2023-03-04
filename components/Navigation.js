@@ -90,12 +90,11 @@ const Navigation = () => {
                             const rate = result.vote_average
                             const vote = result.vote_count
                             const description = result.overview
-                            const mediatype = result.media_type
                         
                         return (
                             <Link href={{
                                 pathname: "/moviedetails/" + result.id,
-                                query: { thumb, title, year, rate, vote, description, mediatype }
+                                query: { thumb, title, year, rate, vote, description }
                             }} key={result.id}>
                                 <div className="flex text-slate-100 hover:bg-slate-700 py-1" onClick={()=>{setvalue('')}}>
                                     <div className="searchcont mx-3">
