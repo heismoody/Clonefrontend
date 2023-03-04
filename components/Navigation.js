@@ -86,7 +86,7 @@ const Navigation = () => {
                     if (index <= 7) {
                             const thumb = result.poster_path
                             const title = result.title || result.name
-                            const year = String(result.release_date).substring(0,4)
+                            const year = String(result.release_date).substring(0,4) || String(result.first_air_date).substring(0,4)
                             const rate = result.vote_average
                             const vote = result.vote_count
                             const description = result.overview
