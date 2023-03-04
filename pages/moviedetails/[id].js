@@ -9,7 +9,6 @@ import Link from "next/link";
 export async function getServerSideProps(context) {
     const id = context.query.id;
     const mediatype = context.query.mediatype;
-    console.log(mediatype);
     const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
     const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
     const data = await res.json();
@@ -19,14 +18,15 @@ export async function getServerSideProps(context) {
         props: {
             data,
             image,
-            id
+            id,
+            mediatype
         }
     }
 
     
 }
 
-const MovieDetails = ({ data, image, id }) => {
+const MovieDetails = ({ data, image, id, mediatype }) => {
     const router = useRouter();
     const thumb = router.query;
     const { page, results } = data;
@@ -154,7 +154,8 @@ const MovieDetails = ({ data, image, id }) => {
                                 (size > 768) && ([
                                     <div key={id}>
                                         <h2 className="detailhead text-4xl sm:text-[16px]">{ thumb.title }</h2>
-                                        <h4 className="detailhead sm:text-xs">{ thumb.year }</h4>
+                                        <h4 className="detailhead sm:text-xs">{thumb.year}</h4>
+                                        <h4 className="detailhead sm:text-xs">{ mediatype }</h4>
                                         <h4 className="detailhead sm:text-xs">Adventure/Animation/Comedy/Family</h4>
                                     </div>
                                 ]
