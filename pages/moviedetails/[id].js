@@ -15,20 +15,30 @@ export async function getServerSideProps(context) {
         const resimg = await fetch(`https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.API_KEY}`);
         const data = await res.json();
         const image = await resimg.json();
-    } else {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
-        const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
-        const data = await res.json();
-        const image = await resimg.json();
-    }
 
-    return {
+        return {
         props: {
             data,
             image,
             id
         }
     }
+    } else {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`);
+        const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
+        const data = await res.json();
+        const image = await resimg.json();
+
+        return {
+        props: {
+            data,
+            image,
+            id
+        }
+    }
+    }
+
+    
 }
 
 const MovieDetails = ({ data, image, id }) => {
