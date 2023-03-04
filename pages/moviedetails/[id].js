@@ -23,6 +23,20 @@ export async function getServerSideProps(context) {
                 mediatype
             }
         }
+    } else {
+        const res = await fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.API_KEY}`);
+        const resimg = await fetch(`https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.API_KEY}`);
+        const data = await res.json();
+        const image = await resimg.json();
+
+        return {
+            props: {
+                data,
+                image,
+                id,
+                mediatype
+            }
+        }
     }
 
     
