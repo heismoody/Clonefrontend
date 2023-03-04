@@ -83,7 +83,7 @@ const Navigation = () => {
                 </div>
                 
                 {results && <div className="absolute my-3 bg-black rounded-b-lg w-full sm:my-0">{results.map((result, index) => {
-                    if (index <= 7) {
+                    if (index <= 4) {
                             const thumb = result.poster_path
                             const title = result.title || result.name
                             const year = String(result.release_date || result.first_air_date).substring(0,4)
