@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
     const id = context.query.id;
     const mediatype = query.mediatype;
 
-    if (mediatype == "tv") {
+    if (mediatype == tv) {
         const res = await fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.API_KEY}&page=1`);
         const resimg = await fetch(`https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.API_KEY}`);
         const data = await res.json();
