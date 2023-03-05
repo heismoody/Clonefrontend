@@ -25,13 +25,16 @@ export async function getServerSideProps(context) {
         }
     } else {
         const res = await fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.API_KEY}`);
+        const seasondetail = await fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.API_KEY}`);
         const resimg = await fetch(`https://api.themoviedb.org/3/tv/${id}/images?api_key=${process.env.API_KEY}`);
         const data = await res.json();
+        const details = await seasondetail.json();
         const image = await resimg.json();
 
         return {
             props: {
                 data,
+                details,
                 image,
                 id,
                 mediatype
@@ -42,10 +45,11 @@ export async function getServerSideProps(context) {
     
 }
 
-const MovieDetails = ({ data, image, id, mediatype }) => {
+const MovieDetails = ({ data, details, image, id, mediatype }) => {
     const router = useRouter();
     const thumb = router.query;
     const { page, results } = data;
+    const { number_of_seasons, number_of_episodes } = details;
     const { backdrops } = image;
     const { user } = usercontexthook()
     const [error, seterror] = useState('')
@@ -175,7 +179,7 @@ const MovieDetails = ({ data, image, id, mediatype }) => {
                                         <h4 className="detailhead sm:text-xs">{thumb.year}</h4>
                                         {
                                             mediatype == "tv" &&
-                                                <h4 className="detailhead sm:text-xs">tv</h4>
+                                            <h4 className="detailhead sm:text-xs">{ number_of_episodes}</h4>
                                             
                                         }   
                                         
