@@ -134,10 +134,11 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                             <h4 className="detailhead bg-red-900 w-full sm:text-xs">{
                                                     seasons.map((season, index) => {
                                                         if (index <= number_of_seasons) {
-                                                            return <div className ="grid grid-cols-4 gap-3"><div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season {season.season_number}</div></div>
+                                                            return <div className="grid grid-cols-4 gap-3 w-full"><div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season {season.season_number}</div></div>
                                                         }
                                                     })
-                                                }</h4>
+                                                }
+                                            </h4>
                                         }
                                         <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
                                     </div>
@@ -194,10 +195,11 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                             <h4 className="detailhead bg-red-900 sm:text-xs">{
                                                 seasons.map((season, index) => {
                                                     if (index <= number_of_seasons) {
-                                                        return <div className ="grid grid-cols-4 gap-3 w-full"><div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season {season.season_number}</div></div>
+                                                        return <div className="grid grid-cols-4 gap-3 w-full"><div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season {season.season_number}</div></div>
                                                         }
                                                     })
-                                                }</h4>
+                                                }
+                                            </h4>
                                         }   
                                         
                                         <h4 className="detailhead sm:text-xs">Adventure/Animation/Comedy/Family</h4>
