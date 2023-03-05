@@ -184,7 +184,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                             <h4 className="detailhead sm:text-xs">{
                                                     seasons.map((season, index) => {
                                                         if (index <= number_of_seasons) {
-                                                            return <span className="font-bold text-our-green mx-2 text-sm ">{ season.season_number }</span>
+                                                            return <span className="border border-slate-300 rounded font-bold text-our-green mx-2 text-sm ">{ season.season_number }</span>
                                                         }
                                                     })
                                                 }</h4>
