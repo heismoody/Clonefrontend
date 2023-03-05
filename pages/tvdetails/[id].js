@@ -19,16 +19,16 @@ const Tvdetails = ({ data }) => {
     const base_url = 'https://image.tmdb.org/t/p/original';
     const { episodes } = data;
     const router = useRouter();
-    const data = router.query;
+    const seasondata = router.query;
   return (
       <>
         <div className='flex justify-center bg-slate-900 py-3'>
             <div className='flex'>
                 <div className="thumbcont h-[138px] w-[92px] border-[2px] m-1 md:thumbcontmobile">
-                      <img src={`${base_url}${data.img}`} className="thumbimg" />
+                      <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
                   </div>
                   <div>
-                      <span>{data.seasonname}{data.seasonyear}</span>
+                      <span>{seasondata.seasonname}{seasondata.seasonyear}</span>
                   </div>
             </div>
         {
