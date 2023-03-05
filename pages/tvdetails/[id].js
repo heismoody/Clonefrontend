@@ -18,8 +18,10 @@ const Tvdetails = ({ data }) => {
   return (
       <>
         {
-            episodes.map((episode) => {
-                return <div>{episode.name}</div>
+            episodes.map((episode, index) => {
+                if (index <= 2) {
+                     return <div>{episode.name}</div>
+                }
             })      
         }
       </>
