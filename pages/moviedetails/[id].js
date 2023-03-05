@@ -51,7 +51,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
     const router = useRouter();
     const thumb = router.query;
     const { page, results } = data;
-    const { number_of_seasons, number_of_episodes } = details;
+    const { number_of_seasons, number_of_episodes, seasons } = details;
     const { backdrops } = image;
     const { user } = usercontexthook()
     const [error, seterror] = useState('')
@@ -181,8 +181,13 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                         <h4 className="detailhead sm:text-xs">{thumb.year}</h4>
                                         {
                                             mediatype == "tv" &&
-                                            <h4 className="detailhead sm:text-xs">{ number_of_episodes}</h4>
-                                            
+                                            <h4 className="detailhead sm:text-xs">{
+                                                    seasons.map((season, index) => {
+                                                        if (index <= number_of_seasons) {
+                                                            return <span className="font-bold text-our-green mx-2 text-sm ">{ season.season_number }</span>
+                                                        }
+                                                    })
+                                                }</h4>
                                         }   
                                         
                                         <h4 className="detailhead sm:text-xs">Adventure/Animation/Comedy/Family</h4>
