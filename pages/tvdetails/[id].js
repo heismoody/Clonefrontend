@@ -19,7 +19,7 @@ const Tvdetails = ({ data }) => {
       <>
         {
             episodes.map((episode) => {
-                return <div>{episode.name}</div>
+                return <div key={episode.id}>{episode.name}</div>
             })      
         }
       </>
