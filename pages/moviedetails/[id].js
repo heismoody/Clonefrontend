@@ -14,10 +14,12 @@ export async function getServerSideProps(context) {
         const resimg = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.API_KEY}`);
         const data = await res.json();
         const image = await resimg.json();
+        const details = '';
 
         return {
             props: {
                 data,
+                details,
                 image,
                 id,
                 mediatype
