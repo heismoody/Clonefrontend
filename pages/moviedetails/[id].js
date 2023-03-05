@@ -128,7 +128,17 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                 <div className="md:flex justify-center" key={id}>
                                     <div className="sm:pb-5 px-3 md:w-fit pb-5">
                                         <h2 className="detailhead text-4xl">{ thumb.title }</h2>
-                                        <h4 className="detailhead">{ thumb.year }</h4>
+                                        <h4 className="detailhead">{thumb.year}</h4>
+                                        {
+                                            mediatype == "tv" &&
+                                            <h4 className="detailhead sm:text-xs">{
+                                                    seasons.map((season, index) => {
+                                                        if (index <= number_of_seasons) {
+                                                            return <span className="border border-slate-300 rounded text-our-green px-2 text-sm ">Season { season.season_number }</span>
+                                                        }
+                                                    })
+                                                }</h4>
+                                        }
                                         <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
                                     </div>
                                 </div>
