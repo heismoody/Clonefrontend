@@ -52,6 +52,7 @@ const MovieDetails = ({ data, image, id, mediatype }) => {
     const [size, setsize] = useState('')
     const [added, setadded] = useState(false)
     const [load, setload] = useState(false)
+    const [media, setmedia]= useState(false)
     const [download, setdownload] = useState(true)
     const {dispatch} = listcontexthook()
 
@@ -59,6 +60,10 @@ const MovieDetails = ({ data, image, id, mediatype }) => {
     const year = thumb.year;
     const movieid = id;
     const posterurl = thumb.thumb;
+
+    if (mediatype == "tv") {
+        setmedia(true);
+    }
 
     function runloading() {
         setload(true);
@@ -171,7 +176,10 @@ const MovieDetails = ({ data, image, id, mediatype }) => {
                                     <div key={id}>
                                         <h2 className="detailhead text-4xl sm:text-[16px]">{ thumb.title }</h2>
                                         <h4 className="detailhead sm:text-xs">{thumb.year}</h4>
-                                        <h4 className="detailhead sm:text-xs">{ mediatype }</h4>
+                                        {
+                                            media &&
+                                            <h4 className="detailhead sm:text-xs">{ mediatype }</h4>
+                                        }
                                         <h4 className="detailhead sm:text-xs">Adventure/Animation/Comedy/Family</h4>
                                     </div>
                                 ]
