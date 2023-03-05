@@ -131,7 +131,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                         <h4 className="detailhead">{thumb.year}</h4>
                                         {
                                             mediatype == "tv" &&
-                                            <h4 className="detailhead bg-red-900 w-full sm:text-xs">
+                                            <h4 className="detailhead w-full sm:text-xs">
                                                 <div className="grid grid-cols-4 gap-3 w-full">
                                                     {
                                                         seasons.map((season, index) => {
@@ -195,7 +195,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                         <h4 className="detailhead sm:text-xs">{thumb.year}</h4>
                                         {
                                             mediatype == "tv" &&
-                                            <h4 className="detailhead bg-red-900 sm:text-xs">
+                                            <h4 className="detailhead sm:text-xs">
                                                 <div className="grid grid-cols-4 gap-4 w-full">
                                                     {
                                                         seasons.map((season, index) => {
