@@ -13,8 +13,8 @@ import React from 'react';
 //     }
 // }
 
-const Tvdetails = ({ data }) => {
-    const { episodes } = data;
+const Tvdetails = ({ }) => {
+    // const { episodes } = data;
   return (
       <>
         {/* {
