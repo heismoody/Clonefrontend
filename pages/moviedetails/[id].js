@@ -61,9 +61,13 @@ const MovieDetails = ({ data, image, id, mediatype }) => {
     const movieid = id;
     const posterurl = thumb.thumb;
 
-    if (mediatype == "tv") {
+    function media(mediatype) {
+      if (mediatype == "tv") {
         setmedia(true);
+        }  
     }
+    media();
+
 
     function runloading() {
         setload(true);
