@@ -178,7 +178,7 @@ const MovieDetails = ({ data, image, id, mediatype }) => {
                                         <h4 className="detailhead sm:text-xs">{thumb.year}</h4>
                                         {
                                             media &&
-                                            <h4 className="detailhead sm:text-xs">{ mediatype }</h4>
+                                            <h4 className="detailhead sm:text-xs">tv</h4>
                                         }
                                         <h4 className="detailhead sm:text-xs">Adventure/Animation/Comedy/Family</h4>
                                     </div>
