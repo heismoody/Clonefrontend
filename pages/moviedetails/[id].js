@@ -196,7 +196,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                         {
                                             mediatype == "tv" &&
                                             <h4 className="detailhead sm:text-xs">
-                                                <div className="grid grid-cols-4 gap-4 w-full">
+                                                <div className="grid grid-cols-4 gap-2 w-full">
                                                     {
                                                         seasons.map((season, index) => {
                                                             if (index <= number_of_seasons) {
