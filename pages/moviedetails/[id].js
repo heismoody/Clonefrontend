@@ -143,7 +143,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                                 return <Link href={{
                                                                     pathname: "/tvdetails/" + season.season_number,
                                                                     query: {movieid}
-                                                                }}>
+                                                                }} key={movieid}>
                                                                     <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm cursor-pointer" onClick={seasonclick}>Season {season.season_number}</div>
                                                                 </Link>
                                                             }
