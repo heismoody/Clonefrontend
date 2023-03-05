@@ -140,7 +140,12 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                     {
                                                         seasons.map((season, index) => {
                                                             if (index <= number_of_seasons) {
-                                                                return <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm cursor-pointer" onClick={seasonclick}>Season {season.season_number}</div>
+                                                                return <Link href={{
+                                                                    pathname: "/tvdetails/" + season.season_number,
+                                                                    query: {movieid}
+                                                                }}>
+                                                                    <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm cursor-pointer" onClick={seasonclick}>Season {season.season_number}</div>
+                                                                </Link>
                                                             }
                                                         })
                                                     }
