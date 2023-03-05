@@ -134,7 +134,11 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                             <h4 className="detailhead sm:text-xs">{
                                                     seasons.map((season, index) => {
                                                         if (index <= number_of_seasons) {
-                                                            return <span className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season { season.season_number }</span>
+                                                            return [
+                                                                <div className="grid grid-cols-3 gap-1">
+                                                                    <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season { season.season_number }</div>
+                                                                </div>
+                                                            ]
                                                         }
                                                     })
                                                 }</h4>
@@ -194,7 +198,11 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                             <h4 className="detailhead sm:text-xs">{
                                                     seasons.map((season, index) => {
                                                         if (index <= number_of_seasons) {
-                                                            return <span className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season { season.season_number }</span>
+                                                            return [
+                                                                <div className="grid grid-cols-4 gap-3">
+                                                                    <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm ">Season { season.season_number }</div>
+                                                                </div>
+                                                            ]
                                                         }
                                                     })
                                                 }</h4>
