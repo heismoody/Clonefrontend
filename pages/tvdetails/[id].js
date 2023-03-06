@@ -26,12 +26,12 @@ const Tvdetails = ({ data }) => {
         <div className='flex justify-center bg-slate-900 py-3'>
             <div>
                 <div className='flex items-center'>
-                    <div className="thumbcont h-[100px] w-[80px] m-1 md:thumbcontmobile">
+                    <div className="thumbcont h-[100px] w-[80px] m-1 md:epsdcontmobile">
                         <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
                     </div>
                     <div>
-                        <h2>{seasondata.seasonname}</h2>
-                        <h6>{seasondata.seasonyear}</h6>  
+                        <h2 className="detailhead text-4xl">{seasondata.seasonname}</h2>
+                        <h4 className="detailhead">{String(seasondata.seasonyear).substring(0,4)}</h4>   
                     </div>
                 </div>
                 <div>

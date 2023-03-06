@@ -27,6 +27,9 @@
     .thumbcontmobile{
       @apply h-[250px] w-[150px] border-[4px] rounded hover:border-our-green;
     }
+    .epsdcontmobile{
+      @apply h-[150px] w-[80px] rounded;
+    }
     .thumbimg{
       @apply h-full w-full object-cover;
     }
