@@ -11,7 +11,7 @@ const Stream = () => {
           <div className='bg-slate-900 h-screen py-4'>
               <div className='w-full flex justify-center'>
                 <div>
-                  <h6 className='paragraph'>TRY USING ANOTHER SERVER IF THE CURRENT ONE IS NOT RESPONDING</h6>
+                  <h6 className='paragraph text-slate-100/80'><b>TRY USING ANOTHER SERVER IF THE CURRENT ONE IS NOT RESPONDING</b></h6>
                   <p className="paragraph">We hate ads as you do. For this might take a while for we to fix.
                       At the moment <b>you can use the back button on your phone</b> to navigate back the site and continue streaming.
                       While on computer <b>you can close the redirecting tab</b>
