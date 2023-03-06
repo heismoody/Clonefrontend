@@ -29,10 +29,10 @@ const Tvdetails = ({ data }) => {
                     <div className="thumbcont h-[100px] w-[80px] m-1 md:thumbcontmobile">
                         <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
                     </div>
-                </div>
-                <div>
-                    <h2>{seasondata.seasonname}</h2>
-                    <h6>{seasondata.seasonyear}</h6>  
+                    <div>
+                        <h2>{seasondata.seasonname}</h2>
+                        <h6>{seasondata.seasonyear}</h6>  
+                    </div>
                 </div>
                 <div>
                     <h4>Episodes {seasondata.seasonepisodes}</h4>  
