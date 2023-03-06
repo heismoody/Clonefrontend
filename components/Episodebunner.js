@@ -11,7 +11,7 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
             <div>
                 <h2>{episodenumber} {episodename}</h2>
                 <h6>Release Date: {episodedate}</h6>
-                <h6>Duration: {runtime}</h6>    
+                <h6>Duration: {runtime} mins</h6>    
             </div>
             <div>
                 <p className="paragraph text-left max-w-lg sm:px-3 w-full">{overview}</p>     

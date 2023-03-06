@@ -72,10 +72,6 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
         setload(true);
         setdownload(false);
     }
-
-    function seasonclick() {
-        
-    }
     
     const sendtolist = async () => {
 
@@ -136,15 +132,15 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                         {
                                             mediatype == "tv" &&
                                             <h4 className="detailhead w-full sm:text-xs">
-                                                <div className="grid grid-cols-4 gap-1 w-full">
+                                                <div className="grid grid-cols-3 gap-1 w-full">
                                                     {
                                                         seasons.map((season, index) => {
                                                             if (index <= number_of_seasons) {
                                                                 return <Link href={{
-                                                                    pathname: "../tvdetails/" + season.season_number,
-                                                                    query: {movieid}
-                                                                }} key={movieid}>
-                                                                    <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm cursor-pointer" onClick={seasonclick}>Season {season.season_number}</div>
+                                                                        pathname: "../tvdetails/" + season.season_number,
+                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count}
+                                                                    }} key={movieid}>
+                                                                    <div className="border border-slate-300 rounded text-our-green text-center px-2 mx-[2px] text-sm cursor-pointer">Season {season.season_number}</div>
                                                                 </Link>
                                                             }
                                                         })
@@ -213,7 +209,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                                         pathname: "../tvdetails/" + season.season_number,
                                                                         query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count}
                                                                     }} key={movieid}>
-                                                                    <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm cursor-pointer" onClick={seasonclick}>Season {season.season_number}</div>
+                                                                    <div className="border border-slate-300 rounded text-our-green text-center px-2 mx-[2px] text-sm cursor-pointer">Season {season.season_number}</div>
                                                                 </Link>
                                                             }
                                                         })
