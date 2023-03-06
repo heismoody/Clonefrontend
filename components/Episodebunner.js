@@ -4,7 +4,7 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
     const base_url = 'https://image.tmdb.org/t/p/original';
     return (
     <div className='flex h-44 sm:epsdcont'>
-        <div className='w-[150px] h-full px-3 sm:epsdcontimg'>
+        <div className='w-[200px] h-full px-3 sm:epsdcontimg'>
             <img src={`${base_url}${episodeimg}`} className="thumbimg" />
         </div>
         <div className='flex flex-col justify-around'>
