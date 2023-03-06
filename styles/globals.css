@@ -93,6 +93,12 @@
     .tempres{
       @apply grid-cols-2 gap-x-1 place-items-center
     }
+    .epsdcont{
+      @apply block mx-3
+    }
+    .epsdcontimg{
+      @apply w-full h-[50px]
+    }
   }
 
 @layer utilities{
