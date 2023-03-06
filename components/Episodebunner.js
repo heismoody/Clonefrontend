@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from 'next/link';
 
 
 const Episodebunner = ({episodenumber, episodename, episodedate, overview, episodeimg, runtime}) => {
