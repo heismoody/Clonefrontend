@@ -97,7 +97,7 @@
       @apply block mx-3 px-3
     }
     .epsdcontimg{
-      @apply w-full h-[150px] py-3 px-0
+      @apply w-full h-[150px] px-0
     }
   }
 
