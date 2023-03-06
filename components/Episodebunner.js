@@ -30,7 +30,7 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
             <div className='flex'>
                     <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${episodenumber}`}>
                         <a onLoad={() => { setload(false); setdownload(true) }}>
-                            <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={runloading}>
+                            <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-fit flex justify-center" onClick={runloading}>
                                 {
                                     download &&
                                         <div>        
@@ -53,7 +53,7 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
                             pathname: '../moviedetails/stream',
                             query: {id: seasonid, seasonnum: seasonnum, episodenum: episodenumber, mediatype: mediatype}
                         }}>
-                        <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
+                        <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-fit flex justify-center mt-2 ">
                             <span>Watch Now</span>
                         </button>
                     </Link> 
