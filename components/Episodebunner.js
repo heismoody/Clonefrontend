@@ -8,13 +8,13 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
             <img src={`${base_url}${episodeimg}`} className="thumbimg" />
         </div>
         <div className='flex flex-col justify-around'>
-            <div className="sm:px-3">
+            <div>
                 <h2 className="text-slate-100 font-bold text-base sm:text-sm">{episodenumber} {episodename}</h2>
                 <h6 className="text-slate-100 font-bold text-base sm:text-sm">Release Date: {episodedate}</h6>
                 <h6 className="text-slate-100 font-bold text-base sm:text-sm">Duration: {runtime} mins</h6>    
             </div>
             <div>
-                <p className="paragraph text-justify max-w-lg sm:px-3 w-full">{overview}</p>     
+                <p className="paragraph text-justify max-w-lg w-full">{overview}</p>     
             </div>   
         </div> 
     </div>
