@@ -31,8 +31,8 @@ const Tvdetails = ({ data }) => {
                     </div>
                     <div>
                         <h2 className="detailhead text-2xl">{seasondata.seasonname}</h2>
-                        <h4 className="text-slate-100 font-bold text-base sm:text-base text-justify">Episodes {seasondata.seasonepisodes}</h4>  
-                        <h4 className="detailhead">{String(seasondata.seasonyear).substring(0,4)}</h4>   
+                        <h4 className="text-slate-100 font-bold text-base sm:text-[12px] text-justify">Episodes {seasondata.seasonepisodes}</h4>  
+                        <h4 className="detailhead sm:text-[12px]">{String(seasondata.seasonyear).substring(0,4)}</h4>   
                     </div>
                 </div>
                 <div>

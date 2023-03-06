@@ -28,7 +28,7 @@
       @apply h-[250px] w-[150px] border-[4px] rounded hover:border-our-green;
     }
     .epsdcontmobile{
-      @apply h-[100px] w-[80px] px-2 rounded;
+      @apply h-[120px] w-[80px] px-2 rounded;
     }
     .thumbimg{
       @apply h-full w-full object-cover;
