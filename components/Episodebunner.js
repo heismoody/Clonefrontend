@@ -14,7 +14,7 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
     }
 
     return (
-    <div className='flex my-3 sm:epsdcont'>
+    <div className='flex my-4 sm:epsdcont'>
         <div className='w-[250px] h-full px-3 sm:epsdcontimg'>
             <img src={`${base_url}${episodeimg}`} className="thumbimg" />
         </div>
