@@ -1,17 +1,11 @@
 import React from 'react'
-import Image from 'next/image';
 
 const Episodebunner = ({episodenumber, episodename, episodedate, overview, episodeimg, runtime}) => {
     const base_url = 'https://image.tmdb.org/t/p/original';
     return (
     <div className='flex'>
-        <div>
-            <Image
-                src={`${base_url}${episodeimg}`}
-                width={120}
-                height={90} 
-                alt="episode picture"    
-            />
+        <div className='w-[150px] h-full'>
+            <img src={`${base_url}${episodeimg}`} className="thumbimg" />
         </div>
         <div className='flex flex-col justify-around'>
             <div>

@@ -24,29 +24,31 @@ const Tvdetails = ({ data }) => {
   return (
     <>
         <div className='flex justify-center bg-slate-900 py-3'>
-            <div className='flex items-center'>
-                <div className="thumbcont h-[100px] w-[80px] border-[1px] m-1 md:thumbcontmobile">
-                    <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
+            <div>
+                <div className='flex items-center'>
+                    <div className="thumbcont h-[100px] w-[80px] m-1 md:thumbcontmobile">
+                        <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
+                    </div>
                 </div>
                 <div>
                     <h2>{seasondata.seasonname}</h2>
                     <h6>{seasondata.seasonyear}</h6>  
                 </div>
-            </div>
-            <div>
-                <h4>Episodes {seasondata.seasonepisodes}</h4>  
-            </div> 
-            <div>
-                {
-                    episodes.map((episode, index) => {
-                        if (index < seasondata.seasonepisodes) {
-                            return  <div>
-                            <Episodebunner episodenumber={episode.episode_number} episodename={episode.name} episodedate={episode.air_date} overview={episode.overview} episodeimg={episode.still_path} runtime={episode.runtime} />
-                            </div>
-                        }
-                    })      
-                }   
-            </div>     
+                <div>
+                    <h4>Episodes {seasondata.seasonepisodes}</h4>  
+                </div> 
+                <div>
+                    {
+                        episodes.map((episode, index) => {
+                            if (index < seasondata.seasonepisodes) {
+                                return  <div>
+                                <Episodebunner episodenumber={episode.episode_number} episodename={episode.name} episodedate={episode.air_date} overview={episode.overview} episodeimg={episode.still_path} runtime={episode.runtime} />
+                                </div>
+                            }
+                        })      
+                    }   
+                </div>  
+            </div>    
         </div>
     </>
   )
