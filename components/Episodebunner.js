@@ -9,9 +9,9 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
         </div>
         <div className='flex flex-col justify-around'>
             <div>
-                <h2 className="text-slate-100 font-bold text-base sm:text-sm">{episodenumber} {episodename}</h2>
-                <h6 className="text-slate-100 font-bold text-base sm:text-sm">Release Date: {episodedate}</h6>
-                <h6 className="text-slate-100 font-bold text-base sm:text-sm">Duration: {runtime} mins</h6>    
+                <h2 className="text-slate-100 font-bold text-base sm:text-sm">{episodenumber}. {episodename}</h2>
+                <h6 className="text-slate-100 font-bold text-base sm:text-sm">Release Date: <span className='text-slate-100/70'>{episodedate}</span></h6>
+                <h6 className="text-slate-100 font-bold text-base sm:text-sm">Duration: <span className='text-slate-100/70'>{runtime} mins</span></h6>    
             </div>
             <div>
                 <p className="paragraph text-justify max-w-lg w-full">{overview}</p>     
