@@ -211,7 +211,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                             if (index <= number_of_seasons) {
                                                                 return <Link href={{
                                                                         pathname: "../tvdetails/" + season.season_number,
-                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date}
+                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count}
                                                                     }} key={movieid}>
                                                                     <div className="border border-slate-300 rounded text-our-green px-2 mx-[2px] text-sm cursor-pointer" onClick={seasonclick}>Season {season.season_number}</div>
                                                                 </Link>
