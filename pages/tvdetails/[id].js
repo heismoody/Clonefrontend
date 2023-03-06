@@ -11,12 +11,14 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            data
+            data,
+            seasonid,
+            id
         }
     }
 }
 
-const Tvdetails = ({ data }) => {
+const Tvdetails = ({ data, seasonid, id }) => {
     const base_url = 'https://image.tmdb.org/t/p/original';
     const { episodes } = data;
     const router = useRouter();
@@ -36,14 +38,11 @@ const Tvdetails = ({ data }) => {
                     </div>
                 </div>
                 <div>
-                      
-                </div> 
-                <div>
                     {
                         episodes.map((episode, index) => {
                             if (index < seasondata.seasonepisodes) {
                                 return  <div>
-                                <Episodebunner episodenumber={episode.episode_number} episodename={episode.name} episodedate={episode.air_date} overview={episode.overview} episodeimg={episode.still_path} runtime={episode.runtime} />
+                                    <Episodebunner episodenumber={episode.episode_number} episodename={episode.name} episodedate={episode.air_date} overview={episode.overview} episodeimg={episode.still_path} runtime={episode.runtime} seasonid={seasonid} seasonnum={id} mediatype={seasondata.mediatype} />
                                 </div>
                             }
                         })      

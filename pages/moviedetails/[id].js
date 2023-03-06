@@ -138,7 +138,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                             if (index <= number_of_seasons) {
                                                                 return <Link href={{
                                                                         pathname: "../tvdetails/" + season.season_number,
-                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count}
+                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count, mediatype: mediatype}
                                                                     }} key={movieid}>
                                                                     <div className="border border-slate-300 rounded text-our-green text-center px-2 mx-[2px] text-sm cursor-pointer">Season {season.season_number}</div>
                                                                 </Link>
@@ -184,7 +184,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                 <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
                                         <Link href={{
                                             pathname: './stream',
-                                            query: {id: movieid},
+                                            query: {id: movieid, mediatype: mediatype}
                                             }}>
                                             <span>Watch Now</span>
                                         </Link> 
@@ -207,7 +207,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                             if (index <= number_of_seasons) {
                                                                 return <Link href={{
                                                                         pathname: "../tvdetails/" + season.season_number,
-                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count}
+                                                                        query: {movieid, img:thumb.thumb, seasonname:season.name, seasonyear:season.air_date, seasonepisodes:season.episode_count, mediatype: mediatype}
                                                                     }} key={movieid}>
                                                                     <div className="border border-slate-300 rounded text-our-green text-center px-2 mx-[2px] text-sm cursor-pointer">Season {season.season_number}</div>
                                                                 </Link>

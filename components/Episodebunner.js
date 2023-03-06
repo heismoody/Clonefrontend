@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link';
 
 
-const Episodebunner = ({episodenumber, episodename, episodedate, overview, episodeimg, runtime}) => {
+const Episodebunner = ({episodenumber, episodename, episodedate, overview, episodeimg, runtime, seasonid, seasonnum, mediatype}) => {
     const base_url = 'https://image.tmdb.org/t/p/original';
 
     const [load, setload] = useState(false)
@@ -28,7 +28,6 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
                 <p className="paragraph text-justify max-w-lg w-full">{overview}</p>     
             </div> 
             <div className='flex'>
-                <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
                     <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${episodenumber}`}>
                         <a onLoad={() => { setload(false); setdownload(true) }}>
                             <button className="text-base text-slate-200 font-bold bg-our-green rounded py-1 w-full flex justify-center" onClick={runloading}>
@@ -52,11 +51,12 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
                     </Link>
                     <Link href={{
                             pathname: '../moviedetails/stream',
-                            query: {id: episodenumber},
-                            }}>
+                            query: {id: seasonid, seasonnum: seasonnum, episodenum: episodenumber, mediatype: mediatype}
+                        }}>
+                        <button className="text-base text-slate-200 font-bold bg-btn-blue rounded py-1 w-full flex justify-center mt-2 ">
                             <span>Watch Now</span>
+                        </button>
                     </Link> 
-                </button>
             </div>   
         </div> 
     </div>
