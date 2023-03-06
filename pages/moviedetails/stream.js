@@ -5,7 +5,7 @@ const Stream = () => {
     const router = useRouter();
     const query = router.query;
     const streamlink = `https://www.2embed.to/embed/tmdb/movie?id=`
-    const streamtvlink = `https://autoembed.to/tv/tmdb/`
+    const streamtvlink = `https://www.2embed.to/embed/tmdb/tv?id=`
   return (
     <>
           <div className='bg-slate-900 h-screen py-4'>
@@ -22,7 +22,7 @@ const Stream = () => {
                   }
                   {
                     query.mediatype == "tv" &&
-                    <iframe className="thumbimg" src={`${streamtvlink}${query.id}-${query.seasonnum}-${query.episodenum}`} width="100%" height="100%" frameBorder="0" allowFullScreen></iframe>
+                    <iframe className="thumbimg" src={`${streamtvlink}${query.id}&s=${query.seasonnum}&e=${query.episodenum}`} width="100%" height="100%" frameBorder="0" allowFullScreen></iframe>
                   }
                 </div>
             </div> 
