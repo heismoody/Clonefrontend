@@ -94,7 +94,7 @@
       @apply grid-cols-2 gap-x-1 place-items-center
     }
     .epsdcont{
-      @apply block mx-3 px-3 h-fit
+      @apply block mx-3 px-3 py-0 h-fit
     }
     .epsdcontimg{
       @apply w-full h-[150px] px-0
