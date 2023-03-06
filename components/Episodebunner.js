@@ -3,8 +3,8 @@ import React from 'react'
 const Episodebunner = ({episodenumber, episodename, episodedate, overview, episodeimg, runtime}) => {
     const base_url = 'https://image.tmdb.org/t/p/original';
     return (
-    <div className='flex sm:epsdcont'>
-        <div className='w-[150px] h-full bg-red-900 px-2 sm:epsdcontimg'>
+    <div className='flex bg-orange-600 sm:epsdcont'>
+        <div className='w-[150px] h-full bg-red-900 px-3 sm:epsdcontimg'>
             <img src={`${base_url}${episodeimg}`} className="thumbimg" />
         </div>
         <div className='flex flex-col justify-around'>
