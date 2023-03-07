@@ -25,8 +25,8 @@ const Tvdetails = ({ data, seasonid, id }) => {
     const seasondata = router.query;
   return (
     <>
-        <div className='flex justify-center w-full bg-slate-900 py-3'>
-            <div>
+        <div className='flex justify-center bg-slate-900 py-3'>
+            <div className='w-full'>
                 <div className='flex'>
                     <div className="h-[150px] w-[125px] px-4 pb-3 md:epsdcontmobile">
                         <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
