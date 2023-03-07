@@ -25,7 +25,7 @@ const Episodebunner = ({episodenumber, episodename, episodedate, overview, episo
                 <h6 className="text-slate-100 font-bold text-sm sm:text-sm">Duration: <span className='text-slate-100/70'>{runtime} mins</span></h6>    
             </div>
             <div>
-                <p className="paragraph text-justify max-w-lg w-full">{overview}</p>     
+                <p className="paragraph text-justify w-full">{overview}</p>     
             </div> 
             <div className='flex sm:justify-center'>
                     <Link href={`${process.env.NEXT_PUBLIC_MOVIE_LINK}${episodenumber}`}>
