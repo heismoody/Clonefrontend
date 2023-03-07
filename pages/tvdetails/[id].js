@@ -27,7 +27,7 @@ const Tvdetails = ({ data, seasonid, id }) => {
     <>
         <div className='flex justify-center bg-slate-900'>
             <div className='w-full'>
-                <div className='flex bg-orange-500 py-3'>
+                <div className='flex py-3'>
                     <div className="h-[150px] w-[125px] px-4 md:epsdcontmobile">
                         <img src={`${base_url}${seasondata.img}`} className="thumbimg" />
                     </div>
