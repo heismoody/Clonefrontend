@@ -116,7 +116,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
 
     
     const base_url = 'https://image.tmdb.org/t/p/original'
-    const trailer = `https://autoembed.to/trailer/movie/`
+    const trailer = `https://autoembed.to/trailer/`
     
     return ( 
         <>
@@ -292,7 +292,7 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                     </div>
                     <div className="flex justify-between mt-5 md:justify-center">
                         <div className="w-[600px] h-[416px] bg-black sm:youtube">
-                            <iframe className="thumbimg hover:opacity-70" src={`${trailer}${id}`}></iframe>
+                            <iframe className="thumbimg hover:opacity-70" src={`${trailer}${mediatype}/${id}`}></iframe>
                         </div>
                         <div className="grid grid-rows-2 gap-y-2 pl-4 md:hidden">
                             {backdrops.map((backdrop, index) => {
