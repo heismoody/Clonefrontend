@@ -33,7 +33,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
   const m = q.getMonth()+1;
   const d = q.getDay();
   const y = q.getFullYear();
-  const currentdate = new Date(y-m-d);
+  const currentdate = `${y}-${m}-${d}`;
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
