@@ -120,6 +120,8 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
             {upcoming.results.map((result, index) => {
               var arrlen = upcoming.results.length;
               console.log(arrlen);
+              console.log(typeof result.release_date);
+              console.log(currentdate);
               if (index <= 3) {
                 return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
             }
