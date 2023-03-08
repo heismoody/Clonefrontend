@@ -29,6 +29,7 @@ export async function getServerSideProps() {
 export default function Home({ data, genre, upcoming, nowplaying, media_type }) {
   const { page, results } = data;
   const { genres } = genre;
+  const moviids = [];
   const q = new Date();
   const m = q.getMonth()+1;
   const d = q.getDay();
@@ -84,7 +85,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
                     
                 //   }
                 // });
-                
+                moviids[index] = result.id;
               const moviedate = result.release_date;
               const releasedate = moviedate.substring(0, 4);
 
@@ -101,11 +102,17 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         <div className="flex justify-center">
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
-              if (index <= 7) {
-                const moviedate = result.release_date;
-                const releasedate = moviedate.substring(0, 4);
+              if (index <= nowplaying.results.length) {
+                moviids.map((moviid, index) => {
+                  if (index <= 3) {
+                    if (result.id != moviid[index]) {
+                      const moviedate = result.release_date;
+                      const releasedate = moviedate.substring(0, 4);
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                      return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                    }
+                  }
+                })
             }
           })}
           </div>
