@@ -33,7 +33,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
   const m = q.getMonth()+1;
   const d = q.getDay();
   const y = q.getFullYear();
-  const currentdate = `${y}-${m}-${d}`;
+  const currentdate = new Date(y-m-d);
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -121,7 +121,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
               var arrlen = upcoming.results.length;
               console.log(arrlen);
               console.log(typeof Date(result.release_date));
-              console.log(typeof Date(currentdate));
+              console.log(currentdate, typeof currentdate);
               if (index <= 3) {
                 return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
             }
