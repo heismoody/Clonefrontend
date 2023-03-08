@@ -29,6 +29,11 @@ export async function getServerSideProps() {
 export default function Home({ data, genre, upcoming, nowplaying, media_type }) {
   const { page, results } = data;
   const { genres } = genre;
+  const q = new Date();
+  const m = q.getMonth()+1;
+  const d = q.getDay();
+  const y = q.getFullYear();
+  const currentdate = `${y}-${m}-${d}`;
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -113,8 +118,8 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         <div className="flex justify-center">
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {upcoming.results.map((result, index) => {
-              if (index <= 3) {
-
+              var arrlen = upcoming.results.length;
+              if (index <= arrlen && result.release_date > currentdate) {
                 return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
             }
           })}
