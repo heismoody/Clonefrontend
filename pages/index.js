@@ -29,6 +29,7 @@ export async function getServerSideProps() {
 export default function Home({ data, genre, upcoming, nowplaying, media_type }) {
   const { page, results } = data;
   const { genres } = genre;
+  const moviids = [];
   const q = new Date();
   const m = q.getMonth()+1;
   const d = q.getDay();
@@ -84,7 +85,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
                     
                 //   }
                 // });
-                
+              moviids[index] = result.id;
               const moviedate = result.release_date;
               const releasedate = moviedate.substring(0, 4);
 
@@ -102,6 +103,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
               if (index <= 7) {
+                console.log(moviids[0], moviids[1], moviids[2], moviids[3]);
                 const moviedate = result.release_date;
                 const releasedate = moviedate.substring(0, 4);
 
