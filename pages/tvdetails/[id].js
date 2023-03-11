@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Episodebunner from '../../components/Episodebunner';
 
-
 export async function getServerSideProps(context) {
     const id = context.query.id;
     const seasonid = context.query.movieid;
