@@ -4,7 +4,7 @@ import Similarthumb from "../../components/similarthumb";
 import { usercontexthook } from "../../hooks/UsercontextHook";
 import { listcontexthook } from "../../hooks/Listcontexthook";
 import Link from "next/link";
-// import axios from 'axios';
+import axios from 'axios';
 
 
 export async function getServerSideProps(context) {
@@ -115,14 +115,14 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
         }
     }, [])
 
-    // const downurl = `${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`;
+    const downurl = `${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`;
 
-    // axios.get(downurl)
-    //     .then(res => {
-    //         console.log('status:', res.status);
-    //         console.log('Headers:', res.headers);
-    //     })
-    //     .catch(error => console.error(error));
+    axios.get(downurl)
+        .then(res => {
+            console.log('status:', res.status);
+            console.log('Headers:', res.headers);
+        })
+        // .catch(error => console.error(error));
     
     const base_url = 'https://image.tmdb.org/t/p/original'
     const trailer = `https://autoembed.to/trailer/`
