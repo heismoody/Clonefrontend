@@ -117,31 +117,11 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
 
     const downurl = `${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`;
 
-    const axiosInstance = axios.create({
-        withCredentials: true,
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type':'application/json',
-        },
-    });
-
-    const fetchurl = async (downurl) => {
-        try {
-            const res = await axiosInstance.get(downurl);
+    axios.get(downurl)
+        .then(res => {
             console.log('status:', res.status);
             console.log('Headers:', res.headers);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    fetchurl(downurl);
-
-    // axios.get(downurl)
-    //     .then(res => {
-    //         console.log('status:', res.status);
-    //         console.log('Headers:', res.headers);
-    //     })
+        })
         // .catch(error => console.error(error));
     
     const base_url = 'https://image.tmdb.org/t/p/original'
