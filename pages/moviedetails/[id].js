@@ -115,13 +115,13 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
         }
     }, [])
 
-    const downurl = `${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`;
+    // const downurl = `${process.env.NEXT_PUBLIC_MOVIE_LINK}${id}`;
 
-    axios.get(downurl)
-        .then(res => {
-            console.log('status:', res.status);
-            console.log('Headers:', res.headers);
-        })
+    // axios.get(downurl)
+    //     .then(res => {
+    //         console.log('status:', res.status);
+    //         console.log('Headers:', res.headers);
+    //     })
         // .catch(error => console.error(error));
     
     const base_url = 'https://image.tmdb.org/t/p/original'

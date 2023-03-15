@@ -103,11 +103,12 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
               if (index <= 7) {
-                console.log(moviids[0], moviids[1], moviids[2], moviids[3]);
-                const moviedate = result.release_date;
-                const releasedate = moviedate.substring(0, 4);
+                if (moviids[index] != result.id) {
+                  const moviedate = result.release_date;
+                  const releasedate = moviedate.substring(0, 4);
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                  return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                }
             }
           })}
           </div>
