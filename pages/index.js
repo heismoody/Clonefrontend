@@ -30,6 +30,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
   const { page, results } = data;
   const { genres } = genre;
   const moviids = [];
+  let counter = 0;
   const q = new Date();
   const m = q.getMonth()+1;
   const d = q.getDay();
@@ -102,7 +103,6 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         <div className="flex justify-center">
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
-              let counter = 0;
               if (index <= nowplaying.results.length && counter <= 7) {
                 if (moviids[index] != result.id) {
                   counter = counter + 1;
