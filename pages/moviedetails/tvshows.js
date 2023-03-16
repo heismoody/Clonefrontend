@@ -20,6 +20,7 @@ export async function getServerSideProps() {
 
 const tvshows = ({ data, topdata, airdata }) => {
   const { page, results } = data;
+  const media_type = "tv";
   return (
     <>
       <div className="bg-slate-900 h-fit pb-4">
@@ -51,7 +52,7 @@ const tvshows = ({ data, topdata, airdata }) => {
                   const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
               })
             }
@@ -60,7 +61,7 @@ const tvshows = ({ data, topdata, airdata }) => {
       </div>
       <div className="bg-slate-800 py-6">
         <div className="flex justify-center pb-5">
-          <h3 className="w-[1100px] heading2 sm:text-center">Airing Today</h3>
+          <h3 className="w-[1100px] heading2 sm:text-center">Trending Today</h3>
         </div>
         <div className="flex justify-center">
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
@@ -70,7 +71,7 @@ const tvshows = ({ data, topdata, airdata }) => {
                   const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
               })
             }
@@ -89,7 +90,7 @@ const tvshows = ({ data, topdata, airdata }) => {
                   const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
               })
             }
