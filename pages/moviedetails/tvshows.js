@@ -20,10 +20,12 @@ const tvshows = ({ data }) => {
         <div className='flex justify-center'>
           <div>
             <h1 className="heading1 sm:text-xl">With Popcorn Movies: Tv Shows Are Happening</h1>
-            <p className="paragraph w-full text-slate-100 bg-orange-500">
+            <div className="flex justify-center">
+              <p className="paragraph w-full text-slate-100 bg-orange-500">
               Sometimes scars you can not see are the ones that hurt the most.
               <cite className='block'>~Samantha Larusso</cite>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex justify-center mt-0 pt-0">
