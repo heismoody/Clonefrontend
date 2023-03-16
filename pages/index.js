@@ -30,7 +30,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
   const { page, results } = data;
   const { genres } = genre;
   const moviids = [];
-  let counter = 0;
+  let counter = 0, upcome = 0;
   const q = new Date();
   const m = q.getMonth()+1;
   const d = q.getDay();
@@ -127,8 +127,9 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
               console.log(currentdate);
               const datenow = new Date(currentdate);
               const daterelease = new Date(result.release_date);
-              if (index <= arrlen) {
+              if (index <= arrlen && upcome <= 3) {
                 if (daterelease >= datenow) {
+                  upcome = upcome + 1;
                   return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
                 }
             }
