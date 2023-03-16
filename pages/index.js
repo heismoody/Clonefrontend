@@ -33,7 +33,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
   let counter = 0, upcome = 0;
   const q = new Date();
   const m = q.getMonth()+1;
-  const d = q.getDay();
+  const d = q.getDate();
   const y = q.getFullYear();
   const currentdate = `${y}-${m}-${d}`;
 
