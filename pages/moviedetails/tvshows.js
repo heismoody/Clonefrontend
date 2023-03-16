@@ -4,7 +4,7 @@ import MovieThumb from '../../components/Moviethumb';
 export async function getServerSideProps() {
   const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`)
   const topres = await fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`)
-  const airres = await fetch (`https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.API_KEY}&language=en-US&page=1`)
+  const airres = await fetch (`https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.API_KEY}`)
   const data = await res.json();
   const topdata = await topres.json();
   const airdata = await airres.json();
