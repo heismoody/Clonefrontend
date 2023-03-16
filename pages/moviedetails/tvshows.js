@@ -19,10 +19,46 @@ const tvshows = ({ data, topdata }) => {
   const { page, results } = data;
   return (
     <>
+      <div className="bg-slate-900 h-fit pb-4">
+        <h1 className="heading1 sm:text-xl">With Popcorn Movies: Tv Shows Are Happening</h1>
+        <div className="flex justify-center">
+          <p className="paragraph">
+            Sometimes scars you can not see are the ones that hurt the most.
+              <cite className='block'>~Samantha Larusso</cite>
+          </p>
+        </div>
+        <div className="flex justify-center mt-0 pt-0">
+          <div className="flex items-center w-fit">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 fill-our-green text-our-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            </span>
+            <span className="heading2 pl-2">Top Rated</span>
+          </div>
+        </div>
+        <div className="flex justify-center my-5">
+          <hr className="w-[1100px] border-slate-100/50"/>
+        </div>
+        <div className="flex justify-center">
+          <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
+            {
+              topdata.results.map((result, index) => {
+                if (index <= 3) {
+                  const moviedate = result.first_air_date;
+                  const releasedate = moviedate.substring(0, 4);
+
+                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                }
+              })
+            }
+          </div>
+        </div>
+      </div>
       <div className='bg-slate-900 h-fit pb-4'>
         <div className='flex justify-center'>
           <div>
-            <h1 className="heading1 sm:text-xl">With Popcorn Movies: Tv Shows Are Happening</h1>
+            <h1 className="heading1 sm:text-xl"></h1>
             <div className="flex justify-center">
               <p className="paragraph w-full text-slate-100">
               Sometimes scars you can not see are the ones that hurt the most.
@@ -72,30 +108,6 @@ const tvshows = ({ data, topdata }) => {
                 })
               }
             </div>
-          </div>
-        </div>
-        <div className="flex justify-center mt-0 pt-0">
-          <div className="flex items-center w-fit">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 fill-our-green text-our-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-            </span>
-            <span className="heading2 pl-2">Popular Downloads</span>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
-            {
-              results.map((result, index) => {
-                if (index <= 3) {
-                  const moviedate = result.first_air_date;
-                  const releasedate = moviedate.substring(0, 4);
-
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
-                }
-              })
-            }
           </div>
         </div>
       </div>   
