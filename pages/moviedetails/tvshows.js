@@ -55,6 +55,25 @@ const tvshows = ({ data, topdata }) => {
             }
           </div>
         </div>
+        <div className="bg-slate-800 py-6">
+          <div className="flex justify-center pb-5">
+            <h3 className="w-[1100px] heading2 sm:text-center">Popular Downloads</h3>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
+              {
+                results.map((result, index) => {
+                  if (index <= 3) {
+                    const moviedate = result.first_air_date;
+                    const releasedate = moviedate.substring(0, 4);
+
+                    return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview}/>
+                  }
+                })
+              }
+            </div>
+          </div>
+        </div>
         <div className="flex justify-center mt-0 pt-0">
           <div className="flex items-center w-fit">
             <span>
