@@ -55,10 +55,10 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
   return (
     <>
       <div className="bg-slate-900 h-fit pb-4">
-        <h1 className="heading1 sm:text-xl">Download YTS YIFY movies: HD smallest size</h1>
+        <h1 className="heading1 sm:text-xl">Download POPCORNS movies: HD smallest size</h1>
         <div className="flex justify-center">
           <p className="paragraph">
-            Welcome to the inspired site <b>popcorn movies</b>(.LT) website. Here you can browse and download movies in excellent quality, all at the smallest file size. YTS Movies Torrents.
+            Welcome to the inspired site <b>popcorn movies</b>(.LT) website. Here you can browse and download movies in excellent quality, all at the smallest file size. Popcorns Movies Galaxy.
           </p>
         </div>
         <div className="flex justify-center mt-0 pt-0">
@@ -124,7 +124,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {upcoming.results.map((result, index) => {
               var arrlen = upcoming.results.length;
-              console.log(arrlen);
+              console.log(currentdate);
               const datenow = new Date(currentdate);
               const daterelease = new Date(result.release_date);
               if (index <= arrlen) {
