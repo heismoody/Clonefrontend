@@ -158,6 +158,7 @@ const Navigation = () => {
                         <div className="cursor-default navigationresp">
                             <Link href={"/"}><a className="list sm:py-2" onClick={hidebar}>Home</a></Link>
                             <a className="list text-our-green hover:text-our-green sm:py-2" onClick={hidebar}>4K</a>
+                            <Link href={"/moviedetails/tvshows"}><a className="list sm:py-2">Tv Shows</a></Link>
                             <a className="list sm:py-2" onClick={hidebar}>Trending</a>
                             {user && (
                                 <Link href={"/userfile/userpage"}>
