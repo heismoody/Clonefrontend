@@ -104,7 +104,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
               if (index <= nowplaying.results.length && counter <= 7) {
-                if (moviids[index] != result.id) {
+                if (moviids[index] !== result.id) {
                   counter = counter + 1;
                   const moviedate = result.release_date;
                   const releasedate = moviedate.substring(0, 4);
