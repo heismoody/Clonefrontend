@@ -22,7 +22,7 @@ const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, medi
                             {
                                 genres.map((genre, index) => {
                                     if (index <= 1) {
-                                        return <p className="thumbtxt">{ genre.name}</p>
+                                        return <p className="thumbtxt">{ genre[index]}</p>
                                     }
                                 })
                             }
