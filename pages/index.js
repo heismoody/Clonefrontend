@@ -77,12 +77,14 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         <div className="flex justify-center">
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {results.map((result, index) => {
+              let count = 0;
               const genrenames = [];
               if (index <= 3) {
                 result.genre_ids.forEach(element => {
                   for (let i = 0; i < genres.length; i++) {
                     if (element == genres[i].id) {
-                      genrenames[i] = (genres[i].name);
+                      genrenames[count] = (genres[i].name);
+                      count = count + 1;
                     }
                   }
                 });
