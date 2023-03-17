@@ -99,20 +99,30 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           </div>
         </div>
       </div>
-      {/* <div className="bg-slate-800 py-6">
+      <div className="bg-slate-800 py-6">
         <div className="flex justify-center pb-5">
           <h3 className="w-[1100px] heading2 sm:text-center">Now Playing</h3>
         </div>
         <div className="flex justify-center">
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
+              let count = 0;
+              const genrenames = [];
               if (index <= nowplaying.results.length && counter <= 7) {
                 if (moviids[index] != result.id) {
+                  result.genre_ids.forEach(element => {
+                  for (let i = 0; i < genres.length; i++) {
+                    if (element == genres[i].id) {
+                      genrenames[count] = (genres[i].name);
+                      count = count + 1;
+                    }
+                  }
+                  });
                   counter = counter + 1;
                   const moviedate = result.release_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                  return <MovieThumb title={result.title} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
             }
           })}
@@ -126,19 +136,29 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         <div className="flex justify-center">
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {upcoming.results.map((result, index) => {
+              let count = 0;
+              const genrenames = [];
               var arrlen = upcoming.results.length;
               const datenow = new Date(currentdate);
               const daterelease = new Date(result.release_date);
               if (index <= arrlen && upcome <= 3) {
                 if (daterelease >= datenow) {
+                  result.genre_ids.forEach(element => {
+                  for (let i = 0; i < genres.length; i++) {
+                    if (element == genres[i].id) {
+                      genrenames[count] = (genres[i].name);
+                      count = count + 1;
+                    }
+                  }
+                  });
                   upcome = upcome + 1;
-                  return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
+                  return <MovieThumb title={result.title} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={result.release_date} movieid={result.id} vote={result.vote_count} description={result.vote_count} mediatype={media_type}/>
                 }
             }
           })}
           </div>
         </div>
-      </div> */}
+      </div>
     </>
 
   )
