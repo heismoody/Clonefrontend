@@ -78,16 +78,14 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {results.map((result, index) => {
               if (index <= 3) {
-                console.log(genres);
-                console.log(moviids[index]);
-                // result.genre_ids.forEach(element => {
-                //   for (let i = 0; i < genres.length; i++) {
-                //     if (element == genres[i].id) {
-                //       // console.log(genres[i].name);
-                //     }
+                result.genre_ids.forEach(element => {
+                  for (let i = 0; i < genres.length; i++) {
+                    if (element == genres[i].id) {
+                      console.log(genres[i].name);
+                    }
                     
-                //   }
-                // });
+                  }
+                });
               moviids[index] = result.id;
               const moviedate = result.release_date;
               const releasedate = moviedate.substring(0, 4);
