@@ -19,6 +19,13 @@ const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, medi
                             </div>
                         </div>
                         <div>
+                            {
+                                genre.map((genre, index) => {
+                                    if (index <= 1) {
+                                        return <p>{genre[index]}</p>
+                                    }
+                                })
+                            }
                             <p className="thumbtxt">Action</p>
                             <p className="thumbtxt">Drama</p>
                         </div> 
