@@ -85,6 +85,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
                     }
                     
                   }
+                  console.log("the next one");
                 });
               moviids[index] = result.id;
               const moviedate = result.release_date;
