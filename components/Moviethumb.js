@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, mediatype, genres }) => {
+const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, mediatype, genre }) => {
     const base_url = 'https://image.tmdb.org/t/p/original'
     return (
         <div className="thumbcontainer sm:thumbcontainermobile">
@@ -19,14 +19,8 @@ const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, medi
                             </div>
                         </div>
                         <div>
-                            {
-                                genres.map((genre, index) => {
-                                    if (index <= 1) {
-                                        return <p className="thumbtxt">{ genre[index]}</p>
-                                    }
-                                })
-                            }
-                            
+                            <p className="thumbtxt">Action</p>
+                            <p className="thumbtxt">Drama</p>
                         </div> 
                         <div>
                             <Link href={{
