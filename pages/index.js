@@ -82,7 +82,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
                 result.genre_ids.forEach(element => {
                   for (let i = 0; i < genres.length; i++) {
                     if (element == genres[i].id) {
-                      genrenames[i] = genres[i].name;
+                      genrenames[i] = (genres[i].name);
                     }
                   }
                 });
