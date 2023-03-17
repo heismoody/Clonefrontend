@@ -4,22 +4,26 @@ import MovieThumb from '../../components/Moviethumb';
 export async function getServerSideProps() {
   const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`)
   const topres = await fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`)
-  const airres = await fetch (`https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.API_KEY}`)
+  const airres = await fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.API_KEY}`)
+  const genreres= await fetch(`https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.API_KEY}&language=en-US`)
   const data = await res.json();
   const topdata = await topres.json();
   const airdata = await airres.json();
+  const genredata = await genreres.json();
 
   return {
     props: {
       data,
       topdata,
-      airdata
+      airdata,
+      genredata
     }
   }
 }
 
-const tvshows = ({ data, topdata, airdata }) => {
+const tvshows = ({ data, topdata, airdata, genredata }) => {
   const { page, results } = data;
+  const { genres } = genredata;
   const media_type = "tv";
   return (
     <>
@@ -48,11 +52,21 @@ const tvshows = ({ data, topdata, airdata }) => {
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {
               topdata.results.map((result, index) => {
+                let count = 0;
+                const genrenames = [];
                 if (index <= 3) {
+                  result.genre_ids.forEach(element => {
+                  for (let i = 0; i < genres.length; i++) {
+                    if (element == genres[i].id) {
+                      genrenames[count] = (genres[i].name);
+                      count = count + 1;
+                    }
+                  }
+                  });
                   const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
               })
             }
@@ -67,11 +81,21 @@ const tvshows = ({ data, topdata, airdata }) => {
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {
               airdata.results.map((result, index) => {
+                let count = 0;
+                const genrenames = [];
                 if (index <= 7) {
+                  result.genre_ids.forEach(element => {
+                  for (let i = 0; i < genres.length; i++) {
+                    if (element == genres[i].id) {
+                      genrenames[count] = (genres[i].name);
+                      count = count + 1;
+                    }
+                  }
+                  });
                   const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
               })
             }
@@ -86,11 +110,21 @@ const tvshows = ({ data, topdata, airdata }) => {
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {
               results.map((result, index) => {
+                let count = 0;
+                const genrenames = [];
                 if (index <= 3) {
+                  result.genre_ids.forEach(element => {
+                  for (let i = 0; i < genres.length; i++) {
+                    if (element == genres[i].id) {
+                      genrenames[count] = (genres[i].name);
+                      count = count + 1;
+                    }
+                  }
+                  });
                   const moviedate = result.first_air_date;
                   const releasedate = moviedate.substring(0, 4);
 
-                  return <MovieThumb title={result.name} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
+                  return <MovieThumb title={result.name} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
               })
             }
