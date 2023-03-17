@@ -77,21 +77,21 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         <div className="flex justify-center">
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {results.map((result, index) => {
+              const genrenames = [];
               if (index <= 3) {
                 result.genre_ids.forEach(element => {
                   for (let i = 0; i < genres.length; i++) {
                     if (element == genres[i].id) {
-                      console.log(genres[i].name);
+                      genrenames[i] = genres[i].name;
                     }
                   }
                 });
-                console.log(result);
-                console.log(genres);
+                console.log(genrenames);
               moviids[index] = result.id;
               const moviedate = result.release_date;
               const releasedate = moviedate.substring(0, 4);
 
-                return <MovieThumb title={result.title} rate={result.vote_average} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type} />
+                return <MovieThumb title={result.title} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type} />
             }
           })}
           </div>

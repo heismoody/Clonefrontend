@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, mediatype }) => {
+const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, mediatype, genre }) => {
     const base_url = 'https://image.tmdb.org/t/p/original'
     return (
         <div className="thumbcontainer sm:thumbcontainermobile">
