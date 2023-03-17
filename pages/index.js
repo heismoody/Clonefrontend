@@ -78,6 +78,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
             {results.map((result, index) => {
               if (index <= 3) {
+                console.log(genres);
                 // result.genre_ids.forEach(element => {
                 //   for (let i = 0; i < genres.length; i++) {
                 //     if (element == genres[i].id) {
@@ -104,6 +105,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
             {nowplaying.results.map((result, index) => {
               if (index <= nowplaying.results.length && counter <= 7) {
+                console.log(moviids[index]);
                 if (moviids[index] != result.id) {
                   counter = counter + 1;
                   const moviedate = result.release_date;
