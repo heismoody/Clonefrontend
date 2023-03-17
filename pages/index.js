@@ -97,7 +97,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           </div>
         </div>
       </div>
-      <div className="bg-slate-800 py-6">
+      {/* <div className="bg-slate-800 py-6">
         <div className="flex justify-center pb-5">
           <h3 className="w-[1100px] heading2 sm:text-center">Now Playing</h3>
         </div>
@@ -136,7 +136,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
           })}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
 
   )
