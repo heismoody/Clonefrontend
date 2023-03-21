@@ -108,8 +108,8 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
             {nowplaying.results.map((result, index) => {
               let count = 0;
               const genrenames = [];
-              if (index <= nowplaying.results.length && counter <= 7) {
-                if (moviids[counter] == result.id) {
+              if ((index <= nowplaying.results.length) && (counter <= 7)) {
+                if (moviids[counter] != result.id) {
                   result.genre_ids.forEach(element => {
                   for (let i = 0; i < genres.length; i++) {
                     if (element == genres[i].id) {
