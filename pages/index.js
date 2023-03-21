@@ -123,8 +123,6 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
                   const releasedate = moviedate.substring(0, 4);
 
                   return <MovieThumb title={result.title} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
-                } else {
-                  index = index + 1;
                 }
               }
             })}
