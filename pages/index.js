@@ -109,7 +109,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
               let count = 0;
               const genrenames = [];
               if (index <= nowplaying.results.length && counter <= 7) {
-                if (moviids[index] != result.id) {
+                if (moviids[index]!=result.id) {
                   result.genre_ids.forEach(element => {
                   for (let i = 0; i < genres.length; i++) {
                     if (element == genres[i].id) {
@@ -124,8 +124,8 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
 
                   return <MovieThumb title={result.title} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type}/>
                 }
-            }
-          })}
+              }
+            })}
           </div>
         </div>
       </div>
