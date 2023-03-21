@@ -79,7 +79,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
             {results.map((result, index) => {
               let count = 0;
               const genrenames = [];
-              if (index <= 3) {
+              if (index <= 3 && result.release_date.substring(0,4) == "2023") {
                 result.genre_ids.forEach(element => {
                   for (let i = 0; i < genres.length; i++) {
                     if (element == genres[i].id) {
@@ -89,13 +89,13 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
                   }
                 });
                 console.log(genrenames);
-              moviids[index] = result.id;
-              const moviedate = result.release_date;
-              const releasedate = moviedate.substring(0, 4);
+                moviids[index] = result.id;
+                const moviedate = result.release_date;
+                const releasedate = moviedate.substring(0, 4);
 
                 return <MovieThumb title={result.title} rate={result.vote_average} genre={genrenames} thumb={result.poster_path} year={releasedate} movieid={result.id} vote={result.vote_count} description={result.overview} mediatype={media_type} />
-            }
-          })}
+              }
+            })}
           </div>
         </div>
       </div>
