@@ -48,7 +48,7 @@ export async function getServerSideProps(context) {
     
 }
 
-const MovieDetails = ({ data, details, image, id, mediatype }) => {
+const MovieDetails = ({ data, details, image, id, mediatype, genre }) => {
     const router = useRouter();
     const thumb = router.query;
     const { page, results } = data;
@@ -157,7 +157,14 @@ const MovieDetails = ({ data, details, image, id, mediatype }) => {
                                                 </div>
                                             </h4>
                                         }
-                                        <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
+                                        <h4 className="detailhead sm:text-base">
+                                        {
+                                            genre.map((item, index) => {
+                                                if (index <= genre.length()) {
+                                                    return <span>{item}/</span>
+                                                }  
+                                            })
+                                        }</h4>
                                     </div>
                                 </div>
                             ]

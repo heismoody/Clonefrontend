@@ -26,7 +26,7 @@ const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, medi
                         <div>
                             <Link href={{
                                 pathname: "/moviedetails/" + movieid,
-                                query: { thumb, title, year, rate, vote, description, mediatype}
+                                query: { thumb, title, year, rate, vote, description, mediatype, genre}
                             }} key={movieid}>
                                 <button className="thumbbtn">View Details</button>
                             </Link>
