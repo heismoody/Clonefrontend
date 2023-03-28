@@ -157,10 +157,12 @@ const MovieDetails = ({ data, details, image, id, mediatype, genre }) => {
                                                 </div>
                                             </h4>
                                         }
-                                        <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
+                                        <h4 className="detailhead sm:text-base">
                                         {
-                                            console.log(genre)
-                                        }
+                                            genre.forEach(element => {
+                                                <span>{element}/</span>
+                                            })
+                                        }</h4>
                                     </div>
                                 </div>
                             ]
