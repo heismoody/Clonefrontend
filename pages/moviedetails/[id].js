@@ -157,7 +157,7 @@ const MovieDetails = ({ data, details, image, id, mediatype, genre }) => {
                                                 </div>
                                             </h4>
                                         }
-                                        <h4 className="detailhead sm:text-base">{genre[0]}/{genre[1]}</h4>
+                                        <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
                                     </div>
                                 </div>
                             ]
