@@ -157,14 +157,10 @@ const MovieDetails = ({ data, details, image, id, mediatype, genre }) => {
                                                 </div>
                                             </h4>
                                         }
-                                        <h4 className="detailhead sm:text-base">
+                                        <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
                                         {
-                                            genre.map((item, index) => {
-                                                if (index <= genre.length()) {
-                                                    return <span>{item}/</span>
-                                                }  
-                                            })
-                                        }</h4>
+                                            console.log(genre);
+                                        }
                                     </div>
                                 </div>
                             ]
