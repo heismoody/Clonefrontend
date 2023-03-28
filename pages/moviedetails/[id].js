@@ -159,7 +159,7 @@ const MovieDetails = ({ data, details, image, id, mediatype, genre }) => {
                                         }
                                         <h4 className="detailhead sm:text-base">Adventure/Animation/Comedy/Family</h4>
                                         {
-                                            console.log(genre);
+                                            console.log(genre)
                                         }
                                     </div>
                                 </div>
