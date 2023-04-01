@@ -5,7 +5,7 @@ const staticassets = [
     '../',
     '../userfile/login',
     '../userfile/signup',
-    '../userfile/fallback'
+    '../userfile/fallback',
 ]
 
 //Service Worker install
@@ -33,7 +33,7 @@ self.addEventListener('fetch', e => {
                         cache.put(e.request.url, fetchRes.clone())
                         return fetchRes
                     })
-                }).catch(() => caches.match('../usefile/fallback'))
+                }).catch(() => caches.match('./fallback'))
         })
     )
 })
