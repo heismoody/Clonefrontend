@@ -19,7 +19,6 @@ const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, medi
                             </div>
                         </div>
                         <div>
-                            
                             <p className="thumbtxt">{genre[0]}</p>
                             <p className="thumbtxt">{genre[1]}</p>
                         </div> 
