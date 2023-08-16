@@ -4,7 +4,6 @@ import Similarthumb from "../../components/similarthumb";
 import { usercontexthook } from "../../hooks/UsercontextHook";
 import { listcontexthook } from "../../hooks/Listcontexthook";
 import Link from "next/link";
-import axios from 'axios';
 
 
 export async function getServerSideProps(context) {

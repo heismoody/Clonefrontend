@@ -1,11 +1,8 @@
 import { useEffect } from "react";
 import MovieThumb from "../components/Moviethumb"
 
-
-export const Movielistendpoint = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`;
-
 export async function getServerSideProps() {
-  const res = await fetch(Movielistendpoint);
+  const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`);
   const resgenre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}`)
   const resupcoming = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`)
   const resnow = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&page=1`)
@@ -76,7 +73,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         </div>
         <div className="flex justify-center">
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
-            {results.map((result, index) => {
+            {results?.map((result, index) => {
               let count = 0;
               const genrenames = [];
               if (index <= 3) {
@@ -104,7 +101,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         </div>
         <div className="flex justify-center">
           <div className="w-[1100px] grid grid-cols-4 gap-x-[90px] gap-y-[40px] px-5 sm:tempres">
-            {nowplaying.results.map((result, index) => {
+            {nowplaying.results?.map((result, index) => {
               let count = 0;
               const genrenames = [];
               if (index <= nowplaying.results.length && counter <= 7) {
@@ -134,7 +131,7 @@ export default function Home({ data, genre, upcoming, nowplaying, media_type }) 
         </div>
         <div className="flex justify-center">
           <div className="w-[1100px] flex justify-between px-5 sm:thumbmob">
-            {upcoming.results.map((result, index) => {
+            {upcoming.results?.map((result, index) => {
               let count = 0;
               const genrenames = [];
               var arrlen = upcoming.results.length;
