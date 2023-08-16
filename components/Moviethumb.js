@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { useState } from "react";
 
 const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, mediatype, genre }) => {
     const base_url = 'https://image.tmdb.org/t/p/original'
+    const [isLoading, setloading] = useState(false);
     return (
         <div className="thumbcontainer sm:thumbcontainermobile">
             <div className="thumbcont relative sm:thumbcontmobile">
@@ -23,11 +25,26 @@ const MovieThumb = ({ title, rate, thumb, year, movieid, vote, description, medi
                             <p className="thumbtxt">{genre[1]}</p>
                         </div> 
                         <div>
-                            <Link href={{
-                                pathname: "/moviedetails/" + movieid,
-                                query: { thumb, title, year, rate, vote, description, mediatype, genre}
-                            }} key={movieid}>
-                                <button className="thumbbtn">View Details</button>
+                            <Link
+                                href={{
+                                    pathname: "/moviedetails/" + movieid,
+                                    query: { thumb, title, year, rate, vote, description, mediatype, genre}
+                                }
+                                }
+                                key={movieid}
+                            >
+                                <button className="thumbbtn" onClick={() => {setloading(true)}}>
+                                    {isLoading ?
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="animate-spin inline w-6 h-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                            </svg>
+                                            <spam> Loading...</spam>
+                                        </div>
+                                    :
+                                        "view details"
+                                    }
+                                </button>
                             </Link>
                         </div>
                     </div>
