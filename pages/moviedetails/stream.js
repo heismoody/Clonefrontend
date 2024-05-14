@@ -4,8 +4,8 @@ import { useRouter } from "next/router"
 const Stream = () => {
     const router = useRouter();
     const query = router.query;
-    const streamlink = `https://autoembed.to/movie/tmdb/`
-    const streamtvlink = `https://autoembed.to/tv/tmdb/`
+    const streamlink = `https://autoembed.co/movie/tmdb/`
+    const streamtvlink = `https://autoembed.co/tv/tmdb/`
   return (
     <>
       <div className='bg-slate-900 h-screen py-4'>
