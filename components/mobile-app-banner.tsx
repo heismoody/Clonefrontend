@@ -29,7 +29,7 @@ export function MobileAppBanner() {
             <span className="text-xl">🍿</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-sm">Popcorns App</span>
+            <span className="font-bold text-sm">Watchflickss App</span>
             <span className="text-xs opacity-90">
               Better experience on mobile
             </span>
@@ -37,7 +37,7 @@ export function MobileAppBanner() {
         </div>
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com/popcorns-app/popcorns/releases" // Replace with actual download link if available
+            href="https://github.com/watchflickss-app/watchflickss/releases" // Replace with actual download link if available
             target="_blank"
             rel="noopener noreferrer"
           >

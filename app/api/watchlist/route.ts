@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { watchlist } from "@/lib/db/schema";
 import { eq, and } from "drizzle-orm";
 import { z } from "zod";
+import { verifyToken } from "@/lib/auth/jwt";
 
 const watchlistSchema = z.object({
   movieId: z.number(),
@@ -13,17 +14,34 @@ const watchlistSchema = z.object({
   mediaType: z.enum(["movie", "tv"]),
 });
 
-// GET - Fetch user's watchlist
-export async function GET() {
-  const session = await auth();
+// Helper to get user ID from Session or JWT
+async function getUserId(req: Request): Promise<number | null> {
+  // 1. Try JWT
+  const authHeader = req.headers.get("Authorization");
+  if (authHeader?.startsWith("Bearer ")) {
+    const token = authHeader.split(" ")[1];
+    const payload = await verifyToken(token);
+    if (payload?.userId) return payload.userId as number;
+  }
 
-  if (!session?.user?.id) {
+  // 2. Try Session
+  const session = await auth();
+  if (session?.user?.id) return parseInt(session.user.id);
+
+  return null;
+}
+
+// GET - Fetch user's watchlist
+export async function GET(req: Request) {
+  const userId = await getUserId(req);
+
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   try {
     const items = await db.query.watchlist.findMany({
-      where: eq(watchlist.userId, parseInt(session.user.id)),
+      where: eq(watchlist.userId, userId),
       orderBy: (watchlist, { desc }) => [desc(watchlist.addedAt)],
     });
 
@@ -39,9 +57,9 @@ export async function GET() {
 
 // POST - Add to watchlist
 export async function POST(req: Request) {
-  const session = await auth();
+  const userId = await getUserId(req);
 
-  if (!session?.user?.id) {
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -52,7 +70,7 @@ export async function POST(req: Request) {
     // Check if already in watchlist
     const existing = await db.query.watchlist.findFirst({
       where: and(
-        eq(watchlist.userId, parseInt(session.user.id)),
+        eq(watchlist.userId, userId),
         eq(watchlist.movieId, validatedData.movieId)
       ),
     });
@@ -67,7 +85,7 @@ export async function POST(req: Request) {
     const [item] = await db
       .insert(watchlist)
       .values({
-        userId: parseInt(session.user.id),
+        userId: userId,
         ...validatedData,
       })
       .returning();
@@ -88,31 +106,40 @@ export async function POST(req: Request) {
 
 // DELETE - Remove from watchlist
 export async function DELETE(req: Request) {
-  const session = await auth();
+  const userId = await getUserId(req);
 
-  if (!session?.user?.id) {
+  if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
+    const movieId = searchParams.get("movieId");
 
-    if (!id) {
+    if (!id && !movieId) {
       return NextResponse.json(
-        { error: "Watchlist item ID is required" },
+        { error: "Watchlist item ID or Movie ID is required" },
         { status: 400 }
       );
     }
 
-    await db
-      .delete(watchlist)
-      .where(
-        and(
-          eq(watchlist.id, parseInt(id)),
-          eq(watchlist.userId, parseInt(session.user.id))
-        )
-      );
+    if (id) {
+      await db
+        .delete(watchlist)
+        .where(
+          and(eq(watchlist.id, parseInt(id)), eq(watchlist.userId, userId))
+        );
+    } else if (movieId) {
+      await db
+        .delete(watchlist)
+        .where(
+          and(
+            eq(watchlist.movieId, parseInt(movieId)),
+            eq(watchlist.userId, userId)
+          )
+        );
+    }
 
     return NextResponse.json({ message: "Removed from watchlist" });
   } catch (error) {

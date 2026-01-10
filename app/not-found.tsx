@@ -20,7 +20,7 @@ export default function NotFound() {
 
         <Link href="/">
           <Button size="lg" className="text-lg px-8 py-6 hover-scale">
-            Popcorns Home
+            Watchflickss Home
           </Button>
         </Link>
 

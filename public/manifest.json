@@ -1,0 +1,16 @@
+{
+  "name": "Watchflicks - Stream Movies & TV Shows",
+  "short_name": "Watchflicks",
+  "description": "Your premium streaming platform for movies and TV shows",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#E50914",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
