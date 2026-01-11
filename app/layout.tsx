@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers/providers";
 import { MobileAppBanner } from "@/components/mobile-app-banner";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,6 +68,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Load GA4 script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XNTNX3Z4TL"
+          strategy="afterInteractive"
+        />
+        {/* Initialize GA4 */}
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XNTNX3Z4TL', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <Providers>
           <MobileAppBanner />
