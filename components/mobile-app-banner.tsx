@@ -22,36 +22,32 @@ export function MobileAppBanner() {
   if (!isVisible || !isMobile) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground px-4 py-3 shadow-lg animate-in slide-in-from-top">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-t border-border px-4 py-3 shadow-lg animate-in slide-in-from-bottom">
       <div className="flex items-center justify-between container mx-auto">
         <div className="flex items-center gap-3">
-          <div className="bg-white p-1 rounded-lg">
+          <div className="bg-primary p-2 rounded-lg">
             <span className="text-xl">🍿</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-sm">Watchflickss App</span>
-            <span className="text-xs opacity-90">
+            <span className="font-bold text-sm">Watchflicks App</span>
+            <span className="text-xs text-muted-foreground">
               Better experience on mobile
             </span>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com/watchflickss-app/watchflickss/releases" // Replace with actual download link if available
+            href="https://github.com/popcorns-app/popcorns/releases"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button
-              size="sm"
-              variant="secondary"
-              className="h-8 text-xs font-bold"
-            >
+            <Button size="sm" className="h-8 text-xs font-bold">
               Install
             </Button>
           </a>
           <button
             onClick={() => setIsVisible(false)}
-            className="p-1 hover:bg-primary-foreground/10 rounded-full transition-colors"
+            className="p-1 hover:bg-secondary rounded-full transition-colors"
           >
             <X className="h-4 w-4" />
           </button>

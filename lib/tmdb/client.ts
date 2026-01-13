@@ -8,6 +8,7 @@ import type {
   SearchResult,
   SeasonDetails,
   ImageResponse,
+  VideoResponse,
 } from "./types";
 
 const API_KEY = process.env.TMDB_API_KEY;
@@ -60,6 +61,9 @@ export const getMovieCredits = (id: number) =>
 export const getTrendingMovies = () =>
   fetchTMDB<TMDBResponse<Movie>>("/trending/movie/day?language=en-US");
 
+export const getMovieVideos = (id: number) =>
+  fetchTMDB<VideoResponse>(`/movie/${id}/videos?language=en-US`);
+
 // TV Shows
 export const getPopularTVShows = () =>
   fetchTMDB<TMDBResponse<TVShow>>("/tv/popular?language=en-US&page=1");
@@ -89,6 +93,9 @@ export const getSeasonCredits = (tvId: number, seasonNumber: number) =>
   fetchTMDB<{ cast: any[]; crew: any[] }>(
     `/tv/${tvId}/season/${seasonNumber}/credits?language=en-US`
   );
+
+export const getTVVideos = (id: number) =>
+  fetchTMDB<VideoResponse>(`/tv/${id}/videos?language=en-US`);
 
 // Genres
 export const getMovieGenres = () =>

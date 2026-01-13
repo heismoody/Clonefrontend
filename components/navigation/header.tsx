@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSearch } from "@/lib/hooks/use-search";
 import { getImageUrl } from "@/lib/tmdb/image";
 import { Button } from "@/components/ui/button";
+import { MobileNav } from "@/components/navigation/mobile-nav";
 
 export function Header() {
   const { data: session } = useSession();
@@ -19,7 +20,9 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-gradient">Watchflicks</span>
+            <span className="text-2xl font-bold text-gradient">
+              Watchflicks
+            </span>
           </Link>
 
           {/* Navigation */}
@@ -94,29 +97,32 @@ export function Header() {
               )}
           </div>
 
-          {/* Auth */}
+          {/* Auth & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            {session ? (
-              <>
-                <span className="text-sm text-muted-foreground hidden md:block">
-                  {session.user?.name}
-                </span>
-                <Button variant="ghost" size="sm" onClick={() => signOut()}>
-                  Sign Out
-                </Button>
-              </>
-            ) : (
-              <>
-                <Link href="/login">
-                  <Button variant="ghost" size="sm">
-                    Sign In
+            <div className="hidden md:flex items-center space-x-4">
+              {session ? (
+                <>
+                  <span className="text-sm text-muted-foreground">
+                    {session.user?.name}
+                  </span>
+                  <Button variant="ghost" size="sm" onClick={() => signOut()}>
+                    Sign Out
                   </Button>
-                </Link>
-                <Link href="/register">
-                  <Button size="sm">Get Started</Button>
-                </Link>
-              </>
-            )}
+                </>
+              ) : (
+                <>
+                  <Link href="/login">
+                    <Button variant="ghost" size="sm">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link href="/register">
+                    <Button size="sm">Get Started</Button>
+                  </Link>
+                </>
+              )}
+            </div>
+            <MobileNav />
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Header } from "@/components/navigation/header";
 import { MediaCard } from "@/components/media/media-card";
+import { TrailerModal } from "@/components/media/trailer-modal";
 import {
   getTVDetails,
   getSimilarTVShows,
@@ -84,6 +85,18 @@ export default async function TVDetailsPage({
                 ))}
               </div>
 
+              <div className="flex items-center gap-4 mb-6">
+                <TrailerModal
+                  id={tv.id}
+                  type="tv"
+                  trigger={
+                    <button className="px-6 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-lg font-semibold transition-smooth flex items-center gap-2">
+                      <span>▶</span> Watch Trailer
+                    </button>
+                  }
+                />
+              </div>
+
               <p className="text-lg mb-6">{tv.overview}</p>
 
               {/* Seasons */}
@@ -108,55 +121,55 @@ export default async function TVDetailsPage({
           </div>
 
           {/* Cast & Crew */}
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">Cast & Crew</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
-                  {cast.map((person) => (
-                    <div key={person.id} className="text-center group">
-                      <div className="relative overflow-hidden rounded-full w-24 h-24 mx-auto mb-2 border-2 border-transparent group-hover:border-primary transition-smooth">
-                        <img
-                          src={getImageUrl(person.profile_path, "w500")}
-                          alt={person.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className="font-semibold text-sm line-clamp-1">
-                        {person.name}
-                      </h3>
-                      <p className="text-xs text-muted-foreground line-clamp-1">
-                        {person.character}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {creators.length > 0 && (
-                  <div className="flex flex-wrap gap-4">
-                    {creators.map((creator) => (
-                      <div
-                        key={creator.id}
-                        className=" px-4 py-2 rounded-lg flex items-center gap-3"
-                      >
-                        {creator.profile_path && (
-                          <img
-                            src={getImageUrl(creator.profile_path, "w500")}
-                            alt={creator.name}
-                            className="w-24 h-24 rounded-full object-cover"
-                          />
-                        )}
-                        <div>
-                          <span className="text-xs text-muted-foreground block">
-                            Creator
-                          </span>
-                          <span className="font-semibold text-sm">
-                            {creator.name}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+          <div className="mb-8">
+            <h3 className="text-xl font-bold mb-4">Cast & Crew</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
+              {cast.map((person) => (
+                <div key={person.id} className="text-center group">
+                  <div className="relative overflow-hidden rounded-full w-24 h-24 mx-auto mb-2 border-2 border-transparent group-hover:border-primary transition-smooth">
+                    <img
+                      src={getImageUrl(person.profile_path, "w500")}
+                      alt={person.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                )}
+                  <h3 className="font-semibold text-sm line-clamp-1">
+                    {person.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground line-clamp-1">
+                    {person.character}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {creators.length > 0 && (
+              <div className="flex flex-wrap gap-4">
+                {creators.map((creator) => (
+                  <div
+                    key={creator.id}
+                    className=" px-4 py-2 rounded-lg flex items-center gap-3"
+                  >
+                    {creator.profile_path && (
+                      <img
+                        src={getImageUrl(creator.profile_path, "w500")}
+                        alt={creator.name}
+                        className="w-24 h-24 rounded-full object-cover"
+                      />
+                    )}
+                    <div>
+                      <span className="text-xs text-muted-foreground block">
+                        Creator
+                      </span>
+                      <span className="font-semibold text-sm">
+                        {creator.name}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
+            )}
+          </div>
           {/* Similar Shows */}
           {similar.results.length > 0 && (
             <section className="mt-16 mb-16">

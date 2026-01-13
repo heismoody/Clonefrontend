@@ -1,5 +1,6 @@
 import { Header } from "@/components/navigation/header";
 import { MediaCard } from "@/components/media/media-card";
+import { TrailerModal } from "@/components/media/trailer-modal";
 import {
   getMovieDetails,
   getSimilarMovies,
@@ -97,14 +98,15 @@ export default async function MovieDetailsPage({
                   >
                     <span>▶</span> Watch Now
                   </a>
-                  <a
-                    href={`https://autoembed.to/movie/${movie.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg font-semibold hover:bg-white/30 transition-smooth"
-                  >
-                    Watch Trailer
-                  </a>
+                  <TrailerModal
+                    id={movie.id}
+                    type="movie"
+                    trigger={
+                      <button className="px-8 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg font-semibold hover:bg-white/30 transition-smooth">
+                        Watch Trailer
+                      </button>
+                    }
+                  />
                 </div>
               </div>
             </div>

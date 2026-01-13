@@ -1,6 +1,11 @@
 "use server";
 
-import { searchMulti, getSeasonDetails } from "@/lib/tmdb/client";
+import {
+  searchMulti,
+  getSeasonDetails,
+  getMovieVideos,
+  getTVVideos,
+} from "@/lib/tmdb/client";
 
 export async function searchMultiAction(query: string) {
   if (!query) return { results: [] };
@@ -12,4 +17,12 @@ export async function getSeasonDetailsAction(
   seasonNumber: number
 ) {
   return await getSeasonDetails(tvId, seasonNumber);
+}
+
+export async function getVideosAction(id: number, type: "movie" | "tv") {
+  if (type === "movie") {
+    return await getMovieVideos(id);
+  } else {
+    return await getTVVideos(id);
+  }
 }
