@@ -1,6 +1,7 @@
 import { Header } from "@/components/navigation/header";
 import { MediaCard } from "@/components/media/media-card";
 import { TrailerModal } from "@/components/media/trailer-modal";
+import { DownloadModal } from "@/components/media/download-modal";
 import {
   getMovieDetails,
   getSimilarMovies,
@@ -52,12 +53,23 @@ export default async function MovieDetailsPage({
           <div className="relative container mx-auto px-4 h-full flex items-end pb-24">
             <div className="flex flex-col md:flex-row gap-8 items-end w-full">
               {/* Poster */}
-              <div className="hidden md:block flex-shrink-0">
+              <div className="hidden md:flex flex-col gap-4 flex-shrink-0 w-64">
                 <img
                   src={getImageUrl(movie.poster_path, "w500")}
                   alt={movie.title}
-                  className="w-64 rounded-lg shadow-2xl hover-scale"
+                  className="w-full rounded-lg shadow-2xl hover-scale"
                 />
+                {movie.imdb_id && (
+                  <DownloadModal
+                    imdbId={movie.imdb_id}
+                    title={movie.title}
+                    trigger={
+                      <button className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-smooth flex items-center justify-center gap-2 shadow-lg">
+                        <span className="text-xl">⬇</span> Download
+                      </button>
+                    }
+                  />
+                )}
               </div>
 
               {/* Details */}
@@ -112,6 +124,32 @@ export default async function MovieDetailsPage({
             </div>
           </div>
         </div>
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Movie",
+              name: movie.title,
+              description: movie.overview,
+              image: getImageUrl(movie.poster_path, "original"),
+              datePublished: movie.release_date,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: movie.vote_average,
+                bestRating: "10",
+                ratingCount: movie.vote_count,
+              },
+              genre: movie.genres.map((g) => g.name),
+              potentialAction: {
+                "@type": "WatchAction",
+                target: `https://watchflicks.live/movies/${movie.id}`,
+              },
+            }),
+          }}
+        />
 
         <div className="container mx-auto px-4 py-12 space-y-16">
           {/* Cast & Crew */}

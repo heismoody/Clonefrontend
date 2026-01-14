@@ -1,6 +1,7 @@
 import { Header } from "@/components/navigation/header";
 import { MediaCard } from "@/components/media/media-card";
 import { TrailerModal } from "@/components/media/trailer-modal";
+import { DownloadModal } from "@/components/media/download-modal";
 import {
   getTVDetails,
   getSimilarTVShows,
@@ -52,12 +53,24 @@ export default async function TVDetailsPage({
         <div className="container mx-auto px-4 -mt-64 relative z-10">
           <div className="flex flex-col md:flex-row gap-8">
             {/* Poster */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex flex-col gap-4 w-64">
               <img
                 src={getImageUrl(tv.poster_path, "w500")}
                 alt={tv.name}
-                className="w-64 rounded-lg shadow-2xl"
+                className="w-full rounded-lg shadow-2xl"
               />
+              {tv.external_ids.imdb_id && (
+                <DownloadModal
+                  imdbId={tv.external_ids.imdb_id}
+                  title={tv.name}
+                  type="tv"
+                  trigger={
+                    <button className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-smooth flex items-center justify-center gap-2 shadow-lg">
+                      <span className="text-xl">⬇</span> Download
+                    </button>
+                  }
+                />
+              )}
             </div>
 
             {/* Details */}
@@ -182,6 +195,34 @@ export default async function TVDetailsPage({
             </section>
           )}
         </div>
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TVSeries",
+              name: tv.name,
+              description: tv.overview,
+              image: getImageUrl(tv.poster_path, "original"),
+              datePublished: tv.first_air_date,
+              numberOfSeasons: tv.number_of_seasons,
+              numberOfEpisodes: tv.number_of_episodes,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: tv.vote_average,
+                bestRating: "10",
+                ratingCount: tv.vote_count,
+              },
+              genre: tv.genres.map((g) => g.name),
+              potentialAction: {
+                "@type": "WatchAction",
+                target: `https://watchflicks.live/tv/${tv.id}`,
+              },
+            }),
+          }}
+        />
       </main>
     </>
   );

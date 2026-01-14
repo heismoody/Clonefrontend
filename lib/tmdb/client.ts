@@ -75,7 +75,9 @@ export const getTrendingTVShows = () =>
   fetchTMDB<TMDBResponse<TVShow>>("/trending/tv/day");
 
 export const getTVDetails = (id: number) =>
-  fetchTMDB<TVDetails>(`/tv/${id}?language=en-US`);
+  fetchTMDB<TVDetails>(
+    `/tv/${id}?language=en-US&append_to_response=external_ids`
+  );
 
 export const getSimilarTVShows = (id: number) =>
   fetchTMDB<TMDBResponse<TVShow>>(`/tv/${id}/similar?language=en-US&page=1`);

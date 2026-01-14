@@ -9,18 +9,22 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Watchflicks - Stream Movies & TV Shows",
+    default: "Watchflicks - Stream & Download Movies & TV Shows",
     template: "%s | Watchflicks",
   },
   description:
-    "Watchflicks is your premium streaming platform for movies and TV shows. Stream the latest releases in high quality on watchflicks.live.",
+    "Watchflicks is your premier destination to stream and download the latest movies and TV shows in HD. Watch trailers, find torrents, and track your favorite content.",
   keywords: [
-    "streaming",
-    "movies",
-    "tv shows",
-    "watch movies online",
+    "watch movies",
+    "stream tv shows",
+    "download movies",
+    "movie torrents",
     "watchflicks",
     "free streaming",
+    "hd movies",
+    "download tv series",
+    "yts movies",
+    "eztv torrents",
   ],
   authors: [{ name: "Watchflicks Team" }],
   creator: "Watchflicks",
