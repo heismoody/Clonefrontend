@@ -1,0 +1,59 @@
+name: Deploy to Contabo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-contabo-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          command_timeout: 15m
+          script: |
+            set -euo pipefail
+
+            APP_DIR="${{ secrets.DEPLOY_PATH }}"
+            APP_NAME="clonefrontend"
+
+            echo "==> Deploying to ${APP_DIR}"
+
+            cd "${APP_DIR}"
+
+            echo "==> Pulling latest code"
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "==> Installing dependencies"
+            corepack enable
+            corepack prepare pnpm@latest --activate
+            pnpm install --frozen-lockfile
+
+            echo "==> Building application"
+            pnpm run build
+
+            echo "==> Restarting application"
+            if pm2 describe "${APP_NAME}" > /dev/null 2>&1; then
+              pm2 restart "${APP_NAME}" --update-env
+            else
+              pm2 start ecosystem.config.js
+              pm2 save
+            fi
+
+            echo "==> Deployment complete"
+            pm2 status "${APP_NAME}"
