@@ -25,6 +25,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           command_timeout: 15m
+
           script: |
             set -euo pipefail
 
@@ -39,21 +40,24 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
-            echo "==> Installing dependencies"
+            echo "==> Enabling Corepack"
             corepack enable
-            corepack prepare pnpm@latest --activate
+
+            echo "==> Installing dependencies"
             pnpm install --frozen-lockfile
 
             echo "==> Building application"
             pnpm run build
 
-            echo "==> Restarting application"
-            if pm2 describe "${APP_NAME}" > /dev/null 2>&1; then
-              pm2 restart "${APP_NAME}" --update-env
-            else
-              pm2 start ecosystem.config.js
-              pm2 save
-            fi
+            echo "==> Applying PM2 configuration"
+            pm2 startOrReload ecosystem.config.js --update-env
+            pm2 save
 
-            echo "==> Deployment complete"
+            echo "==> Checking PM2 status"
             pm2 status "${APP_NAME}"
+
+            echo "==> Running application health check"
+            curl --fail --silent --show-error \
+              http://127.0.0.1:3000 > /dev/null
+
+            echo "==> Deployment successful"
