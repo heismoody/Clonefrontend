@@ -40,8 +40,14 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
-            echo "==> Enabling Corepack"
-            corepack enable
+            echo "==> Loading Node.js environment"
+            export NVM_DIR="$HOME/.nvm"
+            source "$NVM_DIR/nvm.sh"
+            nvm use 20.20.2
+
+            echo "==> Checking Node.js and pnpm"
+            node --version
+            pnpm --version
 
             echo "==> Installing dependencies"
             pnpm install --frozen-lockfile
