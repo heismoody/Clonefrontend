@@ -63,7 +63,22 @@ jobs:
             pm2 status "${APP_NAME}"
 
             echo "==> Running application health check"
-            curl --fail --silent --show-error \
-              http://127.0.0.1:3000 > /dev/null
+            
+            for i in {1..30}; do
+              if curl --fail --silent --show-error \
+                http://127.0.0.1:3000 > /dev/null; then
+                echo "==> Application is ready"
+                break
+              fi
+
+              if [ "$i" -eq 30 ]; then
+                echo "==> Application failed to become ready"
+                pm2 logs "${APP_NAME}" --lines 50 --nostream
+                exit 1
+              fi
+
+              echo "==> Waiting for application... ($i/30)"
+              sleep 2
+            done
 
             echo "==> Deployment successful"
